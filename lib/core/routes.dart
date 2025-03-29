@@ -4,21 +4,25 @@ import 'package:flutter/material.dart';
 class Routes{
 
 
-  static const splashScreen = '/splashScreen';
-  static const descriptionScreen = '/descriptionScreen';
+  static const buyInstaLikesScreen = '/buyInstaLikesScreen';
+  static const buyInstaFollowersScreen = '/buyInstaFollowersScreen';
+  static const buyInstaViewsScreen = '/buyInstaViewsScreen';
+  static const buyInstaCommentsScreen = '/buyInstaCommentsScreen';
+  static const buyInstaSharesScreen = '/buyInstaSharesScreen';
   static const homeScreen = '/homeScreen';
-  static const quotesCategoriesScreen  = '/quotesCategoriesScreen';
-  static const quoteScreen  = '/quoteScreen';
+  static const supportScreen  = '/supportScreen';
+
 
 
   static Map<String, Widget Function(BuildContext)>
   routes = {
-
-
-   // quotesCategoriesScreen: (context) =>  const QuotesCategoriesScreen(category: '',),
-    // quoteScreen: (context) =>  const QuoteScreen(quote: null,),
-
-
+   // buyInstaLikesScreen: (context) => const BuyInstaLikesScreen(category: '',),
+   // buyInstaFollowersScreen: (context) => const BuyInstaFollowersScreen(category: '',),
+   // buyInstaViewsScreen: (context) => const BuyInstaViewsScreen(category: '',),
+   // buyInstaCommentsScreen: (context) => const BuyInstaCommentsScreen(category: '',),
+   // buyInstaSharesScreen: (context) => const BuyInstaSharesScreen(category: '',),
+   // homeScreen: (context) => const HomeScreen(category: '',),
+   // supportScreen: (context) => const SupportScreen(category: '',),
 
 
   };

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:insta_roi/core/appbar_component/appbar_field.dart';
-import 'package:insta_roi/core/responsiveness/responsive_component/box.dart';
-import 'package:insta_roi/core/responsiveness/responsive_component/dimensions.dart';
+
+import 'appbar_field.dart';
 
 class FixedAppbar {
   static  PreferredSize  navigationBar(){

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'package:insta_roi/core/responsiveness/responsive_component/box.dart';
 import 'package:insta_roi/features/home/presentation/widgets/home_text_widget.dart';
 
 import '../../../../core/responsiveness/responsive_component/dimensions.dart';
