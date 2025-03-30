@@ -18,7 +18,7 @@ class WebHomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black54,
       extendBodyBehindAppBar: true,
-      appBar: FixedAppbar.navigationBar(),
+      appBar: FixedAppbar.navigationBar(context),
       body: ListView(
         //shrinkWrap: true,
         physics: BouncingScrollPhysics(),

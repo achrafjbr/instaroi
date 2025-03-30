@@ -70,18 +70,34 @@ class Navigation {
     Navigator.of(context).popUntil((route) => route.isFirst);
   }
 
-  // Route
-  Route createRoute(Widget page) {
+  /// Route
+  static Route createRoute(Widget page) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(0.0, 1.0);
         const end = Offset.zero;
-        final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: Curves.easeInCirc));
+        final tween = Tween(
+          begin: begin,
+          end: end,
+        ).chain(CurveTween(curve: Curves.easeInCirc));
         final offsetAnimation = animation.drive(tween);
-        return SlideTransition(position: offsetAnimation,child: child,);
+        return SlideTransition(position: offsetAnimation, child: child);
       },
     );
   }
 
+  /// navigator Route
+  static pushNavigatorRoute({
+    required BuildContext context,
+    required Widget page,
+  }) async {
+    //Navigator.push(context, createRoute(page));
+    await Navigator.of(context)
+        .pushAndRemoveUntil(createRoute(page),
+        (route){
+          route.popped;
+          return false;
+        });
+  }
 }
