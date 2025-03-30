@@ -70,6 +70,9 @@ class Navigation {
     Navigator.of(context).popUntil((route) => route.isFirst);
   }
 
+
+  static bool _isNavigating = false;
+
   /// Route
   static Route createRoute(Widget page) {
     return PageRouteBuilder(
@@ -77,27 +80,47 @@ class Navigation {
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(0.0, 1.0);
         const end = Offset.zero;
-        final tween = Tween(
-          begin: begin,
-          end: end,
-        ).chain(CurveTween(curve: Curves.easeInCirc));
+        final tween = Tween(begin: begin, end: end)
+            .chain(CurveTween(curve: Curves.easeOutQuart));
+
         final offsetAnimation = animation.drive(tween);
-        return SlideTransition(position: offsetAnimation, child: child);
+
+        // Combine SlideTransition + FadeTransition
+        return FadeTransition(
+          opacity: animation,
+          child: SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          ),
+        );
       },
     );
   }
 
   /// navigator Route
-  static pushNavigatorRoute({
+  static Future<void> pushNavigatorRoute({
     required BuildContext context,
     required Widget page,
   }) async {
-    //Navigator.push(context, createRoute(page));
-    await Navigator.of(context)
-        .pushAndRemoveUntil(createRoute(page),
-        (route){
-          route.popped;
-          return false;
-        });
+    // If already navigating, ignore the new request
+    if (_isNavigating) return;
+
+    // Check if the current route is the same as the target (optional)
+    if (ModalRoute.of(context)?.settings.name == page.runtimeType.toString())
+    {
+      return; // Already on the same page
+    }
+
+    _isNavigating = true;
+
+    try {
+      await Navigator.of(context).push(createRoute(page));
+    } finally {
+      // Reset navigation flag after a delay (even if navigation fails)
+      Future.delayed(const Duration(milliseconds: 500), () {
+        _isNavigating = false;
+      });
+    }
   }
+
 }
