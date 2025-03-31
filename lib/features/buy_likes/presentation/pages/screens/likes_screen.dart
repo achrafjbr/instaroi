@@ -77,10 +77,6 @@ class LikesScreen extends StatelessWidget {
                       context: context,
                       value: 0.02,
                     ),
-                    height: Dimensions.setHeight(
-                      context: context,
-                      height: 0.60,
-                    ),
                     decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(10),
@@ -158,22 +154,26 @@ class LikesScreen extends StatelessWidget {
                           label: 'Order Now',
                           fontSize: 0.05,
                           buttonColor: Colors.purpleAccent,
-                          onPressed: () {},
+                          onTap: () {},
+                          height: 0.10,
+                          width: 0.30,
                         ),
                         // V.space.
-                        Box.verticalBox(context: context, height: 0.01),
+                        Box.verticalBox(context: context, height: 0.02),
+                        // Text : instantly.
                         Container(
-                          margin: AppPadding.allPaddingGeometry(
+                          padding: AppPadding.allPaddingGeometry(
                             context: context,
-                            value: 0.03,
+                            value: 0.01,
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
+                            color: Colors.amber,
                           ),
                           child: LikesTextWidget(
                             fontSize: 0.02,
                             title: 'Instantly',
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       ],

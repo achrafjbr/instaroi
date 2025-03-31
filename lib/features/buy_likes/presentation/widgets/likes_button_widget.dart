@@ -5,43 +5,40 @@ import 'package:insta_roi/features/home/presentation/widgets/home_text_widget.da
 class LikesButtonWidget extends StatelessWidget {
   const LikesButtonWidget({
     super.key,
-    this.onPressed,
+    this.onTap,
     required this.label,
     required this.fontSize,
     this.buttonColor,
+    required this.height,
+    required this.width,
   });
 
-  final void Function()? onPressed;
+  final void Function()? onTap;
   final String label;
   final double fontSize;
+  final double height;
+  final double width;
   final Color? buttonColor;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: Dimensions.setHeight(context: context, height: 0.07),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: buttonColor,
-      ),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          elevation: 5,
-          iconSize: 25,
-          iconAlignment: IconAlignment.start,
-          textStyle: TextStyle(color: Colors.white),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          shadowColor: Colors.white,
-        ), child: HomeTextWidget(
-        fontSize: fontSize,
-        title: label,
-        color: Colors.white,
-        textAlign: TextAlign.left,
-        fontWeight: FontWeight.bold,
-      ),
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        alignment: Alignment.center,
+        height: Dimensions.setHeight(context: context, height: height),
+        width: Dimensions.setWidth(context: context, width: width),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: buttonColor,
+        ),
+        child: HomeTextWidget(
+          fontSize: fontSize,
+          title: label,
+          color: Colors.white,
+          textAlign: TextAlign.center,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }

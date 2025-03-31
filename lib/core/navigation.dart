@@ -104,16 +104,12 @@ class Navigation {
   }) async {
     // If already navigating, ignore the new request
     if (_isNavigating) return;
-
     // Check if the current route is the same as the target (optional)
     if (ModalRoute.of(context)?.settings.name == page.runtimeType.toString())
-    {
-      return; // Already on the same page
-    }
-
+    {return;} // Already on the same page
     _isNavigating = true;
-
     try {
+      // Navigate to the screen
       await Navigator.of(context).push(createRoute(page));
     } finally {
       // Reset navigation flag after a delay (even if navigation fails)
