@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:insta_roi/core/core_component/appbar_component/fixed_appbar.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:insta_roi/core/core_component/core_wigets/page_parts.dart';
 import 'package:insta_roi/core/responsiveness/responsive_component/box.dart';
-import 'package:insta_roi/features/home/presentation/widgets/home_button_widget.dart';
+import 'package:insta_roi/features/buy_likes/presentation/widgets/likes_card_widget.dart';
+import 'package:insta_roi/utils/image_route.dart';
 
 import '../../../../../core/responsiveness/responsive_component/app_padding.dart';
 import '../../../../../core/responsiveness/responsive_component/dimensions.dart';
@@ -15,8 +16,8 @@ class LikesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: FixedAppbar.navigationBar(context),
-
+      extendBodyBehindAppBar: true,
+      // appBar: FixedAppbar.navigationBar(context),
       body: ListView(
         children: [
           // First Top part.
@@ -183,6 +184,173 @@ class LikesScreen extends StatelessWidget {
               ),
             ],
           ),
+
+          // Second part
+          PageParts(
+            color: Colors.blueAccent,
+            children: [
+              //Left part.
+              AppPadding.onlyPadding(
+                context: context,
+                top: 0.15,
+                left: 0.05,
+                child: Container(
+                  constraints: BoxConstraints(
+                    maxWidth: Dimensions.setWidth(
+                      context: context,
+                      width: 0.35,
+                    ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    spacing: 10,
+                    children: [
+                      // Text: InstaRoi: Buy Instagram likes from \$1.00
+                      LikesTextWidget(
+                        textAlign: TextAlign.left,
+                        fontSize: 0.06,
+                        title: 'InstaRoi: Buy Instagram likes from \$1.00',
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      // Text : The Instagram logo has become the symbol of success in today's online influencer world. As a result, many are flooding the TikTok platform to grab the chance to mesmerize their target audience and garner fame.
+                      LikesTextWidget(
+                        textAlign: TextAlign.left,
+                        fontSize: 0.04,
+                        title:
+                            "The Instagram logo has become the symbol of success in today's online influencer world. As a result, many are flooding the TikTok platform to grab the chance to mesmerize their target audience and garner fame.",
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                      ),
+                      // Text: Almost everything that goes up in the TikTok algorithm is ranked based on how many people liked it, So it's not enough to simply create interesting content anymore. Although social media marketing can help you eventually get there, it can take some time to gain consistent TikTok views.
+                      LikesTextWidget(
+                        textAlign: TextAlign.left,
+                        fontSize: 0.04,
+                        title:
+                            "Almost everything that goes up in the Instagram algorithm is ranked based on how many people liked it, So it's not enough to simply create interesting content anymore. Although social media marketing can help you eventually get there, it can take some time to gain consistent Instagram views.",
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                      ),
+                      // Text :  What we offer isn't one computer-generated service that eventually gets flagged
+                      LikesTextWidget(
+                        textAlign: TextAlign.left,
+                        fontSize: 0.04,
+                        color: Colors.white,
+                        title:
+                            "What we offer isn't one computer-generated service that eventually gets flagged.",
+                        fontWeight: FontWeight.bold,
+                      ),
+                      // Text : InstaRoi.com exclusive Instagram likes from real active users will help you increase engagement on your Instagram profile at affordable prices.
+                      LikesTextWidget(
+                        textAlign: TextAlign.left,
+                        fontSize: 0.04,
+                        title:
+                            "InstaRoi.com exclusive Instagram likes from real active users will help you increase engagement on your Instagram profile at affordable prices.",
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              //Right part.
+              AppPadding.onlyPadding(
+                context: context,
+                top: 0.10,
+                right: 0.05,
+                child: SvgPicture.asset('${ImageRoute.imageRoot}5.svg'),
+              ),
+            ],
+          ),
+
+          // Thired part.
+          Container(
+            padding: AppPadding.allPaddingGeometry(
+              context: context,
+              value: 0.05,
+            ),
+            color: Colors.blueGrey,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              spacing: 30,
+              children: [
+                // Text : How Many Instagram likes
+                LikesTextWidget(
+                  textAlign: TextAlign.center,
+                  fontSize: 0.06,
+                  title: 'How Many Instagram likes?',
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+
+                // Text : Boost Your Social Media
+                Container(
+                  padding: AppPadding.allPaddingGeometry(
+                    context: context,
+                    value: 0.01,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.0),
+                    color: const Color.fromARGB(255, 14, 13, 13),
+                  ),
+                  child: LikesTextWidget(
+                    textAlign: TextAlign.center,
+                    fontSize: 0.03,
+                    title: 'Boost Your Social Media Instantly',
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                // Text : These are some of our popular TikTok likes packages. Choose from our list of TikTok likes services and get to the checkout page instantly!
+                Container(
+                  constraints: BoxConstraints(
+                    maxWidth: Dimensions.setWidth(
+                      context: context,
+                      width: 0.30,
+                    ),
+                  ),
+                  child: LikesTextWidget(
+                    textAlign: TextAlign.center,
+                    fontSize: 0.03,
+                    title:
+                        'These are some of our popular Instagram likes packages. Choose from our list of TikTok likes services and get to the checkout page instantly!',
+                    color: Colors.white,
+                  ),
+                ),
+
+                //Likes cards.
+                Wrap(
+                  spacing: 7,
+                  children: List.generate(
+                    10,
+                    (index) => LikesCardWidget(
+                      likeNumber: 100,
+                      likePrice: 1,
+                      onTap: () {
+                        print(index);
+                      },
+                    ),
+                  ),
+                ),
+
+                // Button : Buy Now.
+                LikesButtonWidget(
+                  label: 'Order Now',
+                  fontSize: 0.04,
+                  height: 0.11,
+                  width: 0.15,
+                  buttonColor: Colors.black12,
+                  onTap: () {
+                    print('orderNow');
+                  },
+                ),
+              ],
+            ),
+          ),
+
+          // Part four.
         ],
       ),
     );
