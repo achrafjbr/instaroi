@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:insta_roi/core/navigation.dart';
-import 'package:insta_roi/core/routes.dart';
-import 'package:insta_roi/features/buy_likes/presentation/pages/screens/likes_screen.dart';
-
+import 'package:insta_roi/features/buy_followers/presentation/pages/screens/followers_screen.dart';
+import 'package:insta_roi/features/home/presentation/pages/home_screen.dart';
+import 'package:insta_roi/features/more/presentation/pages/more_screen.dart';
+import 'package:insta_roi/features/support/presentation/pages/support_screen.dart';
+import '../../../features/buy_likes/presentation/pages/likes_screen.dart';
 import 'appbar_field.dart';
 
 class FixedAppbar {
-  static PreferredSize navigationBar(BuildContext context) {
+  static PreferredSize navigationBar(void Function(Widget) onTap) {
     return PreferredSize(
       preferredSize: const Size.fromHeight(70),
       child: Container(
-        height: 500,
+        width: 400,
         padding: const EdgeInsets.symmetric(horizontal: 20),
         decoration: const BoxDecoration(
-          color: Colors.black,
           gradient: LinearGradient(
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
-            tileMode: TileMode.mirror,
             colors: [
               Colors.pinkAccent,
               Colors.blueAccent,
@@ -26,52 +25,53 @@ class FixedAppbar {
           ),
         ),
         child: Row(
-          mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             // Logo
-            Row(
-              children: [
-                Icon(Icons.dangerous, color: Colors.purple, size: 30),
-                // Custom logo
-                const SizedBox(width: 8),
-                const Text(
-                  "TikRoyal",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+            InkWell(
+              onTap: ()=>onTap(const HomeScreen()),
+              child: Row(
+                children: [
+                  const Icon(Icons.kayaking_outlined, color:
+                  Colors.purple, size: 30,),
+                  const SizedBox(width: 8),
+                  const Text(
+                    "InstaRoi",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
 
             // Navigation Items
             Row(
               children: [
-                AppBarField.navItem(
+                AppBarField.buildNavItem(
                   Icons.favorite,
                   "Buy Instagram Likes",
-                  onTap: () {
-                    // Navigate to screen for buy instagram likes.
-                    Navigation.pushNavigatorRoute(
-                      context: context,
-                      page: LikesScreen(),
-                    );
-                  },
+                  () => onTap(const LikesScreen()),
                 ),
-                AppBarField.navItem(
+                AppBarField.buildNavItem(
                   Icons.people,
                   "Buy TikTok Followers",
-                  onTap: () {},
+                      () => onTap(const FollowersScreen()),
                 ),
-                AppBarField.navItem(Icons.tiktok, "More", onTap: () {}),
-                AppBarField.navItem(
+                AppBarField.buildNavItem(
+                  Icons.tiktok,
+                  "More",
+                      () => onTap(const MoreScreen()),
+                ),
+                AppBarField.buildNavItem(
                   Icons.support_agent,
                   "Support",
-                  onTap: () {},
+                      () => onTap(const SupportScreen()),
                 ),
-                AppBarField.cartIcon(onTap: () {}),
+
+                AppBarField.cartIcon(onTap: (){}),
               ],
             ),
           ],

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:insta_roi/core/responsiveness/responsive_devices/mobile_device.dart';
+import 'package:insta_roi/core/responsiveness/responsive_devices/tablet_device.dart';
+import 'package:insta_roi/core/responsiveness/responsive_devices/web_device.dart';
 import 'package:insta_roi/core/themes.dart';
-
 import 'core/responsiveness/responsive_devices/devices.dart';
-import 'features/home/presentation/pages/mobile_home_screen.dart';
-import 'features/home/presentation/pages/tablet_home_screen.dart';
-import 'features/home/presentation/pages/web_home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,9 +20,9 @@ class MyApp extends StatelessWidget {
       title: 'InstaRoi: Buy Likes & Followers',
       theme: Themes.theme(),
       home: Devices(
-        web: WebHomeScreen(),
-        tablet: TabletHomeScreen(),
-        mobile: MobileHomeScreen(),
+        web: WebDevice(),
+        tablet: TabletDevice(),
+        mobile: MobileDevice(),
       ),
     );
   }

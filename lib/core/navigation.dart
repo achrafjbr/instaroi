@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:insta_roi/core/routes.dart';
 
 class Navigation {
   /// Push navigator.

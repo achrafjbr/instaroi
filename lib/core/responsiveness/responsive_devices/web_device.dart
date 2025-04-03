@@ -1,26 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:insta_roi/core/core_component/appbar_component/fixed_appbar.dart';
+import 'package:insta_roi/features/home/presentation/pages/home_screen.dart';
 
-class WebDevice extends StatelessWidget {
+
+
+class WebDevice extends StatefulWidget {
   const WebDevice({super.key});
 
   @override
+  State<WebDevice> createState() => _WebDeviceState();
+}
+
+class _WebDeviceState extends State<WebDevice> {
+  // Current page (default: HomeScreen)
+  Widget currentPage = const HomeScreen();
+
+  // Function to change pages
+  void changePage(Widget page) {
+    setState(() {
+      currentPage = page;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Text('WEB'),
-            SizedBox(
-              height: 50,
-            ),
-            //ElevatedButtonWidget(title: 'I want to be notified', onPress: () {print('Hello...!');},),
-            SizedBox(
-              height: 50,
-            ),
-            Text('WEB'),
-          ],
-        ),
-      ),
+    return Scaffold(
+      appBar: FixedAppbar.navigationBar(changePage),
+      body: currentPage,
     );
   }
+
+
+
 }

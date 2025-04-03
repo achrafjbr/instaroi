@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 
 class AppBarField {
   // Helper Widget for Navigation Items
-  static Widget navItem(IconData icon, String label, {void Function()? onTap}) {
-    return InkWell(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+ static Widget buildNavItem(IconData icon, String label, VoidCallback onTap)
+  {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: InkWell(
+        onTap: onTap,
         child: Row(
           children: [
-            Icon(icon, color: Colors.white, size: 18),
-            const SizedBox(width: 5),
+            Icon(icon, color: Colors.white),
+            const SizedBox(width: 4),
             Text(
               label,
-              style: const TextStyle(color: Colors.white, fontSize: 14),
+              style: const TextStyle(color: Colors.white),
             ),
           ],
         ),

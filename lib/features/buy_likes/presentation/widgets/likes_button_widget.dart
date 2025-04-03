@@ -37,7 +37,7 @@ class LikesButtonWidget extends StatelessWidget {
           title: label,
           color: Colors.white,
           textAlign: TextAlign.center,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );
