@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insta_roi/core/core_component/appbar_component/fixed_appbar.dart';
+import 'package:insta_roi/core/navigation.dart';
 import 'package:insta_roi/features/home/presentation/pages/home_screen.dart';
-
-
 
 class WebDevice extends StatefulWidget {
   const WebDevice({super.key});
@@ -17,9 +16,7 @@ class _WebDeviceState extends State<WebDevice> {
 
   // Function to change pages
   void changePage(Widget page) {
-    setState(() {
-      currentPage = page;
-    });
+    setState(() {currentPage = page;});
   }
 
   @override
@@ -29,7 +26,4 @@ class _WebDeviceState extends State<WebDevice> {
       body: currentPage,
     );
   }
-
-
-
 }
