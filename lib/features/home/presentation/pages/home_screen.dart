@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_roi/core/core_component/core_wigets/footer_widget.dart';
 import 'package:insta_roi/core/core_component/core_wigets/page_parts.dart';
 import 'package:insta_roi/core/responsiveness/responsive_component/app_padding.dart';
 import 'package:insta_roi/core/responsiveness/responsive_component/box.dart';
@@ -543,6 +544,9 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
+
+        // footer
+        FooterWidget(),
       ],
     );
   }
