@@ -660,6 +660,7 @@ class LikesScreen extends StatelessWidget {
             ],
           ),
         ),
+
         // parti sex.
         Container(
           color: Colors.grey,
@@ -795,6 +796,7 @@ class LikesScreen extends StatelessWidget {
             ],
           ),
         ),
+
         // Footer
         FooterWidget(),
       ],
