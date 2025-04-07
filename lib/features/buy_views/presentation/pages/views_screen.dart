@@ -309,8 +309,8 @@ class ViewsScreen extends StatelessWidget {
                 children: List.generate(
                   10,
                   (index) => ViewsCardWidget(
-                    likeNumber: 100,
-                    likePrice: 1,
+                    viewNumber: 100,
+                    viewPrice: 1,
                     onTap: () {
                       print(index);
                     },

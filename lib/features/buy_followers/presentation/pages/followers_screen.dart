@@ -507,8 +507,8 @@ class FollowersScreen extends StatelessWidget {
                 children: List.generate(
                   10,
                       (index) => FollowersCardWidget(
-                    likeNumber: 100,
-                    likePrice: 1,
+                    followerNumber: 100,
+                    followerPrice: 1,
                     onTap: () {
                       print(index);
                     },

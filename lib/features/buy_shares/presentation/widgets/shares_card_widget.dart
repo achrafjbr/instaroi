@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:insta_roi/core/responsiveness/responsive_component/app_padding.dart';
 import 'package:insta_roi/features/buy_likes/presentation/widgets/likes_text_widget.dart';
 
-class ViewsCardWidget extends StatelessWidget {
-  const ViewsCardWidget({
+class SharesCardWidget extends StatelessWidget {
+  const SharesCardWidget({
     super.key,
-    required this.viewNumber,
-    required this.viewPrice,
+    required this.shareNumber,
+    required this.sharePrice,
     this.onTap,
   });
-  final int viewNumber;
-  final double viewPrice;
+  final int shareNumber;
+  final double sharePrice;
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
@@ -34,27 +34,27 @@ class ViewsCardWidget extends StatelessWidget {
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
-            // Text :view number
+            // Text :shares number
             LikesTextWidget(
               textAlign: TextAlign.center,
               fontSize: 0.04,
-              title: viewNumber.toString(),
+              title: shareNumber.toString(),
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
-            // Text : Instagram views
+            // Text : Instagram share
             LikesTextWidget(
               textAlign: TextAlign.center,
               fontSize: 0.02,
-              title: 'Instagram views',
+              title: 'Instagram share',
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
-            // Text : views price.
+            // Text : share price.
             LikesTextWidget(
               textAlign: TextAlign.center,
               fontSize: 0.03,
-              title: '\$${viewPrice}',
+              title: '\$$sharePrice',
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),

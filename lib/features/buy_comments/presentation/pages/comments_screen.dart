@@ -234,8 +234,8 @@ class CommentsScreen extends StatelessWidget {
                 children: List.generate(
                   10,
                       (index) => CommentsCardWidget(
-                    likeNumber: 100,
-                    likePrice: 1,
+                    commentNumber: 100,
+                    commentPrice: 1,
                     onTap: () {
                       print(index);
                     },

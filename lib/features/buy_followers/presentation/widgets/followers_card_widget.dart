@@ -5,12 +5,12 @@ import 'package:insta_roi/features/buy_likes/presentation/widgets/likes_text_wid
 class FollowersCardWidget extends StatelessWidget {
   const FollowersCardWidget({
     super.key,
-    required this.likeNumber,
-    required this.likePrice,
+    required this.followerNumber,
+    required this.followerPrice,
     this.onTap,
   });
-  final int likeNumber;
-  final double likePrice;
+  final int followerNumber;
+  final double followerPrice;
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
@@ -34,27 +34,27 @@ class FollowersCardWidget extends StatelessWidget {
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
-            // Text :likes number
+            // Text :followers number
             LikesTextWidget(
               textAlign: TextAlign.center,
               fontSize: 0.04,
-              title: likeNumber.toString(),
+              title: followerNumber.toString(),
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
-            // Text : Instagram like
+            // Text : Instagram follower
             LikesTextWidget(
               textAlign: TextAlign.center,
               fontSize: 0.02,
-              title: 'Instagram likes',
+              title: 'Instagram followers',
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
-            // Text : like price.
+            // Text : follower price.
             LikesTextWidget(
               textAlign: TextAlign.center,
               fontSize: 0.03,
-              title: '\$${likePrice}',
+              title: '\$$followerPrice',
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),

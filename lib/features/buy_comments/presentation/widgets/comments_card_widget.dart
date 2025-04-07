@@ -5,12 +5,12 @@ import 'package:insta_roi/features/buy_likes/presentation/widgets/likes_text_wid
 class CommentsCardWidget extends StatelessWidget {
   const CommentsCardWidget({
     super.key,
-    required this.likeNumber,
-    required this.likePrice,
+    required this.commentNumber,
+    required this.commentPrice,
     this.onTap,
   });
-  final int likeNumber;
-  final double likePrice;
+  final int commentNumber;
+  final double commentPrice;
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,11 @@ class CommentsCardWidget extends StatelessWidget {
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
-            // Text :likes number
+            // Text :comments number
             LikesTextWidget(
               textAlign: TextAlign.center,
               fontSize: 0.04,
-              title: likeNumber.toString(),
+              title: commentNumber.toString(),
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
@@ -46,15 +46,15 @@ class CommentsCardWidget extends StatelessWidget {
             LikesTextWidget(
               textAlign: TextAlign.center,
               fontSize: 0.02,
-              title: 'Instagram likes',
+              title: 'Instagram comments',
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
-            // Text : like price.
+            // Text : comment price.
             LikesTextWidget(
               textAlign: TextAlign.center,
               fontSize: 0.03,
-              title: '\$${likePrice}',
+              title: '\$${commentPrice}',
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
