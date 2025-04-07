@@ -797,6 +797,8 @@ class LikesScreen extends StatelessWidget {
           ),
         ),
 
+        // Clients reviews ...
+
         // Footer
         FooterWidget(),
       ],

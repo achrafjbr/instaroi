@@ -742,7 +742,7 @@ class FollowersScreen extends StatelessWidget {
                 children: [
                   LikesTextWidget(
                     fontSize: 0.03,
-                    title:"We’ve seen horror stories of how someone seemingly rose to instant fame only to have their account banned because of fake accounts. Artificial intelligence may not be perfect, but it’s getting smarter every day. That’s why with the wrong move (even with authentic users!), you can let all your hard work go to waste. To help you continuously increase your TikTok engagement throughout services, we use a drip feed to help you stay under the radar of the watchful eye of the ever-evolving algorithm.",
+                    title:"We’ve seen horror stories of how someone seemingly rose to instant fame only to have their account banned because of fake accounts. Artificial intelligence may not be perfect, but it’s getting smarter every day. That’s why with the wrong move (even with authentic users!), you can let all your hard work go to waste. To help you continuously increase your Instagram engagement throughout services, we use a drip feed to help you stay under the radar of the watchful eye of the ever-evolving algorithm.",
                     textAlign: TextAlign.left,
                     color: Colors.white,
                   ),
@@ -755,7 +755,7 @@ class FollowersScreen extends StatelessWidget {
                 children: [
                   LikesTextWidget(
                     fontSize: 0.03,
-                    title:"From common wisdom, everyone knows that the sum is greater than its parts. Based on the results that we were able to deliver to our customers in increasing follower count, any powerful individual strategy on a social media platform is more effective when there are other efforts undertaken. To make it easier for you to access amazing prices for various related services, you can buy TikTok followers, likes, shares, views, comments, and more on our website.",
+                    title:"From common wisdom, everyone knows that the sum is greater than its parts. Based on the results that we were able to deliver to our customers in increasing follower count, any powerful individual strategy on a social media platform is more effective when there are other efforts undertaken. To make it easier for you to access amazing prices for various related services, you can buy Instagram followers, likes, shares, views, comments, and more on our website.",
                     textAlign: TextAlign.left,
                     color: Colors.white,
                   ),
@@ -767,7 +767,7 @@ class FollowersScreen extends StatelessWidget {
                 children: [
                   LikesTextWidget(
                     fontSize: 0.03,
-                    title:"Because there are other social media platforms that became popular before TikTok, you may not know how to employ social media marketing strategies here. Don’t worry! Even before you buy real TikTok followers from us, you’ll still be able to inquire with our helpful customer support about which options will work well for you.",
+                    title:"Because there are other social media platforms that became popular before Instagram, you may not know how to employ social media marketing strategies here. Don’t worry! Even before you buy real Instagram followers from us, you’ll still be able to inquire with our helpful customer support about which options will work well for you.",
                     textAlign: TextAlign.left,
                     color: Colors.white,
                   ),
@@ -868,7 +868,7 @@ class FollowersScreen extends StatelessWidget {
                     ),
                     LikesTextWidget(
                       fontSize: 0.03,
-                      title: "Now, all that’s left to do is pay! You can pay using your Visa or Mastercard. PayPal payments are accepted as well. We’ll send you an email confirming your purchase once you’re done with this part. Apart from ensuring that your TikTok profile is public, you don’t have to do anything else. We’ll deliver the followers on the username you provided.",
+                      title: "Now, all that’s left to do is pay! You can pay using your Visa or Mastercard. PayPal payments are accepted as well. We’ll send you an email confirming your purchase once you’re done with this part. Apart from ensuring that your Instagram profile is public, you don’t have to do anything else. We’ll deliver the followers on the username you provided.",
                       textAlign: TextAlign.left,
                       color: Colors.white,
                     ),
