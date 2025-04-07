@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:insta_roi/core/manager/navigation/navigation_cubit.dart';
 import 'package:insta_roi/core/responsiveness/responsive_devices/mobile_device.dart';
 import 'package:insta_roi/core/responsiveness/responsive_devices/tablet_device.dart';
 import 'package:insta_roi/core/responsiveness/responsive_devices/web_device.dart';
@@ -19,10 +21,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'InstaRoi: Buy Likes & Followers',
       theme: Themes.theme(),
-      home: Devices(
-        web: WebDevice(),
-        tablet: TabletDevice(),
-        mobile: MobileDevice(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context)=>NavigationCubit()),
+        ],
+        child: Devices(
+          web: WebDevice(),
+          tablet: TabletDevice(),
+          mobile: MobileDevice(),
+        ),
       ),
     );
   }

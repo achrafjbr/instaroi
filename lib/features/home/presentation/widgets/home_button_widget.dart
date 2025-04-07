@@ -43,6 +43,7 @@ class HomeButtonWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.0),
           ),
           shadowColor: Colors.white,
+          backgroundColor: buttonColor,
         ),
         icon: Icon(icon, color: Colors.white),
       ),

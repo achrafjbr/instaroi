@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:insta_roi/core/core_component/appbar_component/appbar_field.dart';
 import 'package:insta_roi/core/core_component/core_wigets/page_parts.dart';
-import 'package:insta_roi/core/navigation.dart';
 import 'package:insta_roi/features/buy_followers/presentation/pages/followers_screen.dart';
 import 'package:insta_roi/features/buy_likes/presentation/pages/likes_screen.dart';
 import 'package:insta_roi/features/home/presentation/widgets/home_text_widget.dart';
 
+import '../../../features/buy_views/presentation/pages/views_screen.dart';
+import '../../manager/navigation/navigation_cubit.dart';
 import '../../responsiveness/responsive_component/app_padding.dart';
 import '../../responsiveness/responsive_component/dimensions.dart';
 
@@ -41,30 +42,27 @@ class FooterWidget extends StatelessWidget {
                   Icons.favorite,
                   'BUY INSTAGRAM LIKES',
                   () {
-                    Navigation.pushNavigatorRoute(
-                      context: context,
-                      page: LikesScreen(),
-                    );
+                    NavigationCubit.instance(context)
+                        .changePage(const LikesScreen(),);
+
                   },
                 ),
                 AppBarField.buildNavItem(
                   Icons.people_alt,
                   'BUY INSTAGRAM Followers',
                   () {
-                    Navigation.pushNavigatorRoute(
-                      context: context,
-                      page: FollowersScreen(),
-                    );
+                    NavigationCubit.instance(
+                      context,
+                    ).changePage(const FollowersScreen());
                   },
                 ),
                 AppBarField.buildNavItem(
                   Icons.favorite,
                   'BUY INSTAGRAM Views',
                   () {
-                    Navigation.pushNavigatorRoute(
-                      context: context,
-                      page: LikesScreen(),
-                    );
+                    NavigationCubit.instance(
+                      context,
+                    ).changePage(const ViewsScreen());
                   },
                 ),
               ],
@@ -115,7 +113,8 @@ class FooterWidget extends StatelessWidget {
                 // Text :
                 HomeTextWidget(
                   fontSize: 0.03,
-                  title: 'Buy Instagram likes and followers from InstaRoi.com, Instant delivery of Likes and Followers with Non drop guarantee and 24/7 Support chat.',
+                  title:
+                      'Buy Instagram likes and followers from InstaRoi.com, Instant delivery of Likes and Followers with Non drop guarantee and 24/7 Support chat.',
                   color: Colors.white,
                   fontWeight: FontWeight.w300,
                   textAlign: TextAlign.left,

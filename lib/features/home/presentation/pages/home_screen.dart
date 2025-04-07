@@ -4,10 +4,14 @@ import 'package:insta_roi/core/core_component/core_wigets/page_parts.dart';
 import 'package:insta_roi/core/responsiveness/responsive_component/app_padding.dart';
 import 'package:insta_roi/core/responsiveness/responsive_component/box.dart';
 import 'package:insta_roi/core/responsiveness/responsive_component/dimensions.dart';
+import 'package:insta_roi/features/buy_followers/presentation/pages/followers_screen.dart';
+import 'package:insta_roi/features/buy_likes/presentation/pages/likes_screen.dart';
 import 'package:insta_roi/features/home/presentation/widgets/home_button_widget.dart';
 import 'package:insta_roi/features/home/presentation/widgets/home_capsule_widget.dart';
 import 'package:insta_roi/features/home/presentation/widgets/home_text_widget.dart';
 import 'package:insta_roi/utils/image_route.dart';
+
+import '../../../../core/manager/navigation/navigation_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -61,13 +65,24 @@ class HomeScreen extends StatelessWidget {
                       label: 'BUY INSTAGRAM LIKES ',
                       fontSize: 0.03,
                       icon: Icons.favorite,
+                      onPressed: () {
+                        NavigationCubit.instance(
+                          context,
+                        ).changePage(const LikesScreen());
+                      },
                     ),
+
                     // BUY INSTAGRAM FOLLOWERS
                     HomeButtonWidget(
                       buttonColor: Colors.pinkAccent,
                       label: 'BUY INSTAGRAM FOLLOWERS ',
                       fontSize: 0.03,
                       icon: Icons.people_alt,
+                      onPressed: () {
+                        NavigationCubit.instance(
+                          context,
+                        ).changePage(const FollowersScreen());
+                      },
                     ),
 
                     // ALL SERVICES
@@ -76,6 +91,11 @@ class HomeScreen extends StatelessWidget {
                       label: 'SEE ALL SERVICES',
                       fontSize: 0.03,
                       icon: Icons.menu,
+                      onPressed: () {
+                        NavigationCubit.instance(
+                          context,
+                        ).changePage(const LikesScreen());
+                      },
                     ),
                   ],
                 ),
@@ -91,6 +111,10 @@ class HomeScreen extends StatelessWidget {
                 elevation: 10,
                 shadowColor: Colors.white,
                 child: Container(
+                  padding: AppPadding.symmetricPaddingGeometry(
+                    context: context,
+                    horizontal: 0.02,
+                  ),
                   height: Dimensions.setHeight(context: context, height: 0.60),
                   decoration: BoxDecoration(
                     color: Colors.black,
@@ -214,51 +238,28 @@ class HomeScreen extends StatelessWidget {
                       ),
                       // disabled buttons.
                       Container(
-                        padding: AppPadding.onlyPaddingGeometry(
+                        alignment: Alignment.center,
+                        margin: AppPadding.onlyPaddingGeometry(
                           context: context,
-                          left: 0.11,
+                          left: 0.04,
                         ),
-                        child: Row(
-                          spacing: 6,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(8.0),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.0),
-                                color: Colors.blue,
-                              ),
-                              width: Dimensions.setWidth(
-                                context: context,
-                                width: 0.20,
-                              ),
-                              height: Dimensions.setHeight(
-                                context: context,
-                                height: 0.08,
-                              ),
-                              child: HomeTextWidget(
-                                fontSize: 0.04,
-                                title: 'Follow',
-                                color: Colors.white,
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.all(8.0),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.0),
-                                color: Colors.blue,
-                              ),
-                              width: Dimensions.setWidth(
-                                context: context,
-                                width: 0.05,
-                              ),
-                              height: Dimensions.setHeight(
-                                context: context,
-                                height: 0.08,
-                              ),
-                              child: Icon(Icons.add),
-                            ),
-                          ],
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.0),
+                          color: Colors.blue,
+                        ),
+                        width: Dimensions.setWidth(
+                          context: context,
+                          width: 0.20,
+                        ),
+                        height: Dimensions.setHeight(
+                          context: context,
+                          height: 0.08,
+                        ),
+                        child: HomeTextWidget(
+                          fontSize: 0.04,
+                          title: 'Follow',
+                          color: Colors.white,
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],
