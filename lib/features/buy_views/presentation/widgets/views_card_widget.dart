@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:insta_roi/core/responsiveness/responsive_component/app_padding.dart';
 import 'package:insta_roi/features/buy_likes/presentation/widgets/likes_text_widget.dart';
 
-class LikesCardWidget extends StatelessWidget {
-  const LikesCardWidget({
+class ViewsCardWidget extends StatelessWidget {
+  const ViewsCardWidget({
     super.key,
     required this.likeNumber,
     required this.likePrice,

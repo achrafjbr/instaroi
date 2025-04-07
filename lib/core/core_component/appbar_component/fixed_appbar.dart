@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:insta_roi/features/buy_followers/presentation/pages/screens/followers_screen.dart';
+import 'package:insta_roi/features/buy_followers/presentation/pages/followers_screen.dart';
 import 'package:insta_roi/features/home/presentation/pages/home_screen.dart';
-import 'package:insta_roi/features/more/presentation/pages/more_screen.dart';
 import 'package:insta_roi/features/support/presentation/pages/support_screen.dart';
 import '../../../features/buy_likes/presentation/pages/likes_screen.dart';
 import 'appbar_field.dart';
@@ -60,10 +59,11 @@ class FixedAppbar {
                   "Buy TikTok Followers",
                       () => onTap(const FollowersScreen()),
                 ),
+                // i'll implement this part later using a MenuButton
                 AppBarField.buildNavItem(
                   Icons.tiktok,
                   "More",
-                      () => onTap(const MoreScreen()),
+                      () => onTap( Container()),
                 ),
                 AppBarField.buildNavItem(
                   Icons.support_agent,

@@ -6,11 +6,11 @@ import '../../../../core/responsiveness/responsive_component/app_padding.dart';
 import '../../../../core/responsiveness/responsive_component/box.dart';
 import '../../../../core/responsiveness/responsive_component/dimensions.dart';
 import '../../../buy_likes/presentation/widgets/likes_button_widget.dart';
-import '../../../buy_likes/presentation/widgets/likes_card_widget.dart';
 import '../../../buy_likes/presentation/widgets/likes_expansion_tile_widget.dart';
 import '../../../buy_likes/presentation/widgets/likes_text_widget.dart';
 import '../../../home/presentation/widgets/home_capsule_widget.dart';
 import '../../../home/presentation/widgets/home_text_widget.dart';
+import '../widgets/views_card_widget.dart';
 
 class ViewsScreen extends StatelessWidget {
   const ViewsScreen({super.key});
@@ -308,7 +308,7 @@ class ViewsScreen extends StatelessWidget {
                 spacing: 7,
                 children: List.generate(
                   10,
-                  (index) => LikesCardWidget(
+                  (index) => ViewsCardWidget(
                     likeNumber: 100,
                     likePrice: 1,
                     onTap: () {
@@ -581,7 +581,6 @@ class ViewsScreen extends StatelessWidget {
 
         // Footer
         FooterWidget(),
-
 
       ],
     );

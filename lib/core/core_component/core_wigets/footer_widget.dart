@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:insta_roi/core/core_component/appbar_component/appbar_field.dart';
 import 'package:insta_roi/core/core_component/core_wigets/page_parts.dart';
 import 'package:insta_roi/core/navigation.dart';
-import 'package:insta_roi/features/buy_followers/presentation/pages/screens/followers_screen.dart';
+import 'package:insta_roi/features/buy_followers/presentation/pages/followers_screen.dart';
 import 'package:insta_roi/features/buy_likes/presentation/pages/likes_screen.dart';
 import 'package:insta_roi/features/home/presentation/widgets/home_text_widget.dart';
 

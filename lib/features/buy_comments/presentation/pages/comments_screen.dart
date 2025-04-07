@@ -12,6 +12,7 @@ import '../../../buy_likes/presentation/widgets/likes_expansion_tile_widget.dart
 import '../../../buy_likes/presentation/widgets/likes_text_widget.dart';
 import '../../../home/presentation/widgets/home_capsule_widget.dart';
 import '../../../home/presentation/widgets/home_text_widget.dart';
+import '../widgets/comments_card_widget.dart';
 
 class CommentsScreen extends StatelessWidget {
   const CommentsScreen({super.key});
@@ -232,7 +233,7 @@ class CommentsScreen extends StatelessWidget {
                 spacing: 7,
                 children: List.generate(
                   10,
-                      (index) => LikesCardWidget(
+                      (index) => CommentsCardWidget(
                     likeNumber: 100,
                     likePrice: 1,
                     onTap: () {

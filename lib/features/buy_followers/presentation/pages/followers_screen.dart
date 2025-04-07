@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import '../../../../../core/core_component/core_wigets/footer_widget.dart';
-import '../../../../../core/core_component/core_wigets/page_parts.dart';
-import '../../../../../core/responsiveness/responsive_component/app_padding.dart';
-import '../../../../../core/responsiveness/responsive_component/box.dart';
-import '../../../../../core/responsiveness/responsive_component/dimensions.dart';
-import '../../../../../utils/image_route.dart';
-import '../../../../buy_likes/presentation/widgets/likes_button_widget.dart';
-import '../../../../buy_likes/presentation/widgets/likes_card_widget.dart';
-import '../../../../buy_likes/presentation/widgets/likes_expansion_tile_widget.dart';
-import '../../../../buy_likes/presentation/widgets/likes_text_widget.dart';
-import '../../../../home/presentation/widgets/home_text_widget.dart';
+import '../../../../core/core_component/core_wigets/footer_widget.dart';
+import '../../../../core/core_component/core_wigets/page_parts.dart';
+import '../../../../core/responsiveness/responsive_component/app_padding.dart';
+import '../../../../core/responsiveness/responsive_component/box.dart';
+import '../../../../core/responsiveness/responsive_component/dimensions.dart';
+import '../../../../utils/image_route.dart';
+import '../../../buy_likes/presentation/widgets/likes_button_widget.dart';
+import '../../../buy_likes/presentation/widgets/likes_expansion_tile_widget.dart';
+import '../../../buy_likes/presentation/widgets/likes_text_widget.dart';
+import '../../../home/presentation/widgets/home_text_widget.dart';
+import '../widgets/followers_card_widget.dart';
 
 class FollowersScreen extends StatelessWidget {
   const FollowersScreen({super.key});
@@ -507,7 +506,7 @@ class FollowersScreen extends StatelessWidget {
                 spacing: 7,
                 children: List.generate(
                   10,
-                      (index) => LikesCardWidget(
+                      (index) => FollowersCardWidget(
                     likeNumber: 100,
                     likePrice: 1,
                     onTap: () {
