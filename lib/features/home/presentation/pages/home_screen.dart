@@ -10,6 +10,7 @@ import 'package:insta_roi/features/home/presentation/widgets/home_button_widget.
 import 'package:insta_roi/features/home/presentation/widgets/home_capsule_widget.dart';
 import 'package:insta_roi/features/home/presentation/widgets/home_text_widget.dart';
 import 'package:insta_roi/utils/image_route.dart';
+import 'package:insta_roi/utils/moved_container.dart';
 
 import '../../../../core/manager/navigation/navigation_cubit.dart';
 
@@ -61,7 +62,7 @@ class HomeScreen extends StatelessWidget {
                     Box.verticalBox(context: context, height: 0.04),
                     // BUY INSTAGRAM LIKES
                     HomeButtonWidget(
-                      buttonColor: Colors.pinkAccent,
+                      buttonColor: Colors.purpleAccent[100],
                       label: 'BUY INSTAGRAM LIKES ',
                       fontSize: 0.03,
                       icon: Icons.favorite,
@@ -74,7 +75,7 @@ class HomeScreen extends StatelessWidget {
 
                     // BUY INSTAGRAM FOLLOWERS
                     HomeButtonWidget(
-                      buttonColor: Colors.pinkAccent,
+                      buttonColor: Colors.purpleAccent[100],
                       label: 'BUY INSTAGRAM FOLLOWERS ',
                       fontSize: 0.03,
                       icon: Icons.people_alt,
@@ -107,164 +108,228 @@ class HomeScreen extends StatelessWidget {
               context: context,
               top: 0.10,
               right: 0.05,
-              child: Card(
-                elevation: 10,
-                shadowColor: Colors.white,
-                child: Container(
-                  padding: AppPadding.symmetricPaddingGeometry(
-                    context: context,
-                    horizontal: 0.02,
-                  ),
-                  height: Dimensions.setHeight(context: context, height: 0.60),
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  width: Dimensions.setWidth(context: context, width: 0.40),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      // text :@InstaRoi
-                      HomeTextWidget(
-                        fontSize: 0.05,
-                        title: "@InstaRoi",
-                        textAlign: TextAlign.left,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Card(
+                    elevation: 10,
+                    shadowColor: Colors.white,
+                    child: Container(
+                      padding: AppPadding.symmetricPaddingGeometry(
+                        context: context,
+                        horizontal: 0.02,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      height: Dimensions.setHeight(
+                        context: context,
+                        height: 0.60,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      width: Dimensions.setWidth(context: context, width: 0.40),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          // image
-                          AppPadding.onlyPadding(
-                            child: Container(
-                              alignment: Alignment.center,
-                              clipBehavior: Clip.hardEdge,
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  width: 2,
-                                  color: Colors.pinkAccent,
-                                  style: BorderStyle.solid,
+                          // text :@InstaRoi
+                          HomeTextWidget(
+                            fontSize: 0.05,
+                            title: "@InstaRoi",
+                            textAlign: TextAlign.left,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              // image
+                              AppPadding.onlyPadding(
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  clipBehavior: Clip.hardEdge,
+                                  decoration: BoxDecoration(
+                                    color: Colors.red,
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      width: 2,
+                                      color: Colors.pinkAccent,
+                                      style: BorderStyle.solid,
+                                    ),
+                                  ),
+                                  height: Dimensions.setHeight(
+                                    context: context,
+                                    height: 0.18,
+                                  ),
+                                  width: Dimensions.setWidth(
+                                    context: context,
+                                    width: 0.08,
+                                  ),
+                                  child: // image
+                                      CircleAvatar(
+                                    foregroundImage: AssetImage(
+                                      '${ImageRoute.imageRoot}profile.jpg',
+                                    ),
+                                    radius: 50,
+                                  ),
                                 ),
-                              ),
-                              height: Dimensions.setHeight(
                                 context: context,
-                                height: 0.18,
+                                top: 0.06,
                               ),
-                              width: Dimensions.setWidth(
-                                context: context,
-                                width: 0.08,
+                              // Posts
+                              Column(
+                                children: [
+                                  // text : 9,994
+                                  HomeTextWidget(
+                                    fontSize: 0.05,
+                                    title: '9,449',
+                                    color: Colors.white,
+                                    textAlign: TextAlign.left,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  // text : Posts
+                                  HomeTextWidget(
+                                    fontSize: 0.04,
+                                    title: 'Posts',
+                                    color: Colors.grey,
+                                    textAlign: TextAlign.left,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ],
                               ),
-                              child: // image
-                                  CircleAvatar(
-                                foregroundImage: AssetImage(
-                                  '${ImageRoute.imageRoot}profile.jpg',
-                                ),
-                                radius: 50,
+
+                              // Followers
+                              Column(
+                                children: [
+                                  // text : 1 M
+                                  HomeTextWidget(
+                                    fontSize: 0.05,
+                                    title: '1 M',
+                                    color: Colors.white,
+                                    textAlign: TextAlign.left,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  // text : Followers
+                                  HomeTextWidget(
+                                    fontSize: 0.04,
+                                    title: 'Followers',
+                                    color: Colors.grey,
+                                    textAlign: TextAlign.left,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ],
                               ),
+
+                              // Following
+                              Column(
+                                children: [
+                                  // text : 9,994
+                                  HomeTextWidget(
+                                    fontSize: 0.05,
+                                    title: '1,940',
+                                    color: Colors.white,
+                                    textAlign: TextAlign.left,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  // text : Following
+                                  HomeTextWidget(
+                                    fontSize: 0.04,
+                                    title: 'Following',
+                                    color: Colors.grey,
+                                    textAlign: TextAlign.left,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          // disabled buttons.
+                          Container(
+                            alignment: Alignment.center,
+                            margin: AppPadding.onlyPaddingGeometry(
+                              context: context,
+                              left: 0.04,
                             ),
-                            context: context,
-                            top: 0.06,
-                          ),
-                          // Posts
-                          Column(
-                            children: [
-                              // text : 9,994
-                              HomeTextWidget(
-                                fontSize: 0.05,
-                                title: '9,449',
-                                color: Colors.white,
-                                textAlign: TextAlign.left,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              // text : Posts
-                              HomeTextWidget(
-                                fontSize: 0.04,
-                                title: 'Posts',
-                                color: Colors.grey,
-                                textAlign: TextAlign.left,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ],
-                          ),
-
-                          // Followers
-                          Column(
-                            children: [
-                              // text : 1 M
-                              HomeTextWidget(
-                                fontSize: 0.05,
-                                title: '1 M',
-                                color: Colors.white,
-                                textAlign: TextAlign.left,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              // text : Followers
-                              HomeTextWidget(
-                                fontSize: 0.04,
-                                title: 'Followers',
-                                color: Colors.grey,
-                                textAlign: TextAlign.left,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ],
-                          ),
-
-                          // Following
-                          Column(
-                            children: [
-                              // text : 9,994
-                              HomeTextWidget(
-                                fontSize: 0.05,
-                                title: '1,940',
-                                color: Colors.white,
-                                textAlign: TextAlign.left,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              // text : Following
-                              HomeTextWidget(
-                                fontSize: 0.04,
-                                title: 'Following',
-                                color: Colors.grey,
-                                textAlign: TextAlign.left,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ],
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              color: Colors.blue,
+                            ),
+                            width: Dimensions.setWidth(
+                              context: context,
+                              width: 0.20,
+                            ),
+                            height: Dimensions.setHeight(
+                              context: context,
+                              height: 0.08,
+                            ),
+                            child: HomeTextWidget(
+                              fontSize: 0.04,
+                              title: 'Follow',
+                              color: Colors.white,
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ],
                       ),
-                      // disabled buttons.
-                      Container(
-                        alignment: Alignment.center,
-                        margin: AppPadding.onlyPaddingGeometry(
-                          context: context,
-                          left: 0.04,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.0),
-                          color: Colors.blue,
-                        ),
-                        width: Dimensions.setWidth(
-                          context: context,
-                          width: 0.20,
-                        ),
-                        height: Dimensions.setHeight(
-                          context: context,
-                          height: 0.08,
-                        ),
-                        child: HomeTextWidget(
-                          fontSize: 0.04,
-                          title: 'Follow',
-                          color: Colors.white,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                  Positioned(
+                    top: -10,
+                    child: MovedContainer(
+                      title: 'So Great',
+                      isPrefix: true,
+                      emoji: '🥰 ',
+                      begin: -50,
+                      end: 50,
+                    ),
+                  ),
+
+                  Positioned(
+                    top: 50,
+                    child: MovedContainer(
+                      title: 'Fantastic',
+                      isPrefix: true,
+                      emoji: '💪 ',
+                      begin: -30,
+                      end: 40,
+                    ),
+                  ),
+
+                  Positioned(
+                    bottom: -10,
+                    child: MovedContainer(
+                      title: 'Best Content',
+                      isPrefix: false,
+                      emoji: ' 👍',
+                      begin: -20,
+                      end: 20,
+                    ),
+                  ),
+
+                  Positioned(
+                    top: 0,
+                    right: -40,
+                    child: MovedContainer(
+                      title: 'Perfect',
+                      isPrefix: false,
+                      emoji: ' 👌',
+                      begin: -20,
+                      end: 20,
+                    ),
+                  ),
+
+                  Positioned(
+                    top: 70,
+                    right: -50,
+                    child: MovedContainer(
+                      title: 'Growing-up',
+                      isPrefix: false,
+                      emoji: ' 💥',
+                      begin: -40,
+                      end: 30,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
