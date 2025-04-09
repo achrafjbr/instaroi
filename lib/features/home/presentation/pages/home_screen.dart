@@ -13,6 +13,7 @@ import 'package:insta_roi/utils/image_route.dart';
 import 'package:insta_roi/utils/moved_container.dart';
 
 import '../../../../core/manager/navigation/navigation_cubit.dart';
+import '../../../../utils/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -47,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                       fontSize: 0.06,
                       title:
                           'Buy Instagram Followers and Likes starting at \$1.00',
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.bold,
                     ),
                     // Are you jealous of other Tik Instagramers? Our services will strengthen your content and give it the push it needs to go viral.
@@ -56,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                       fontSize: 0.04,
                       title:
                           'Are you jealous of other Instagramers? Our services will strengthen your content and give it the push it needs to go viral.',
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.normal,
                     ),
                     Box.verticalBox(context: context, height: 0.04),
@@ -113,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Card(
                     elevation: 10,
-                    shadowColor: Colors.white,
+                    shadowColor: AppColors.kWhite,
                     child: Container(
                       padding: AppPadding.symmetricPaddingGeometry(
                         context: context,
@@ -124,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                         height: 0.60,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.black,
+                        color: AppColors.kBlack,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: Dimensions.setWidth(context: context, width: 0.40),
@@ -137,7 +138,7 @@ class HomeScreen extends StatelessWidget {
                             fontSize: 0.05,
                             title: "@InstaRoi",
                             textAlign: TextAlign.left,
-                            color: Colors.white,
+                            color: AppColors.kWhite,
                             fontWeight: FontWeight.bold,
                           ),
                           Row(
@@ -183,7 +184,7 @@ class HomeScreen extends StatelessWidget {
                                   HomeTextWidget(
                                     fontSize: 0.05,
                                     title: '9,449',
-                                    color: Colors.white,
+                                    color: AppColors.kWhite,
                                     textAlign: TextAlign.left,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -205,7 +206,7 @@ class HomeScreen extends StatelessWidget {
                                   HomeTextWidget(
                                     fontSize: 0.05,
                                     title: '1 M',
-                                    color: Colors.white,
+                                    color: AppColors.kWhite,
                                     textAlign: TextAlign.left,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -227,7 +228,7 @@ class HomeScreen extends StatelessWidget {
                                   HomeTextWidget(
                                     fontSize: 0.05,
                                     title: '1,940',
-                                    color: Colors.white,
+                                    color: AppColors.kWhite,
                                     textAlign: TextAlign.left,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -265,7 +266,7 @@ class HomeScreen extends StatelessWidget {
                             child: HomeTextWidget(
                               fontSize: 0.04,
                               title: 'Follow',
-                              color: Colors.white,
+                              color: AppColors.kWhite,
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -364,7 +365,7 @@ class HomeScreen extends StatelessWidget {
                           textAlign: TextAlign.left,
                           fontSize: 0.06,
                           title: 'Dominate Instagram with InstaRoi',
-                          color: Colors.white,
+                          color: AppColors.kWhite,
                           fontWeight: FontWeight.bold,
                         ),
                         // Expect top-quality products and rapid growth for your page and videos, securely.
@@ -373,7 +374,7 @@ class HomeScreen extends StatelessWidget {
                           fontSize: 0.04,
                           title:
                               'Expect top-quality products and rapid growth for your page and videos, securely.',
-                          color: Colors.white,
+                          color: AppColors.kWhite,
                           fontWeight: FontWeight.normal,
                         ),
                         Box.verticalBox(context: context, height: 0.04),
@@ -429,7 +430,7 @@ class HomeScreen extends StatelessWidget {
                       textAlign: TextAlign.left,
                       fontSize: 0.06,
                       title: 'Best Support',
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.bold,
                     ),
 
@@ -439,14 +440,14 @@ class HomeScreen extends StatelessWidget {
                       fontSize: 0.03,
                       title:
                           'Do you have any question about your order? You’re never alone.',
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.normal,
                     ),
 
                     // Shoot TikRoyal’s support a message - we’ll get to it soon!
                     HomeTextWidget(
                       textAlign: TextAlign.left,
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       title:
                           'Shoot InstaRoi’s support a message - we’ll get to it soon! ',
                       fontSize: 0.03,
@@ -475,14 +476,14 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Card(
                     elevation: 10,
-                    shadowColor: Colors.white,
+                    shadowColor: AppColors.kWhite,
                     child: Container(
                       height: Dimensions.setHeight(
                         context: context,
                         height: 0.3,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.black,
+                        color: AppColors.kBlack,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: Dimensions.setWidth(context: context, width: 0.20),

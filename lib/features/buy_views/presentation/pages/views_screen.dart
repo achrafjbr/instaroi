@@ -5,6 +5,7 @@ import '../../../../core/core_component/core_wigets/page_parts.dart';
 import '../../../../core/responsiveness/responsive_component/app_padding.dart';
 import '../../../../core/responsiveness/responsive_component/box.dart';
 import '../../../../core/responsiveness/responsive_component/dimensions.dart';
+import '../../../../utils/app_colors.dart';
 import '../../../buy_likes/presentation/widgets/likes_button_widget.dart';
 import '../../../buy_likes/presentation/widgets/likes_expansion_tile_widget.dart';
 import '../../../buy_likes/presentation/widgets/likes_text_widget.dart';
@@ -42,7 +43,7 @@ class ViewsScreen extends StatelessWidget {
                       textAlign: TextAlign.left,
                       fontSize: 0.06,
                       title: 'Buy Instagram Views',
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.bold,
                     ),
                     // We provide high-quality Instagram likes from real and active Instagram users, Join our loyal customer base who already benefits from the best Instagram likes possible.
@@ -51,7 +52,7 @@ class ViewsScreen extends StatelessWidget {
                       fontSize: 0.04,
                       title:
                           'We provide high-quality Instagram Views from real and active Instagram users, Join our loyal customer base who already benefits from the best Instagram views possible.',
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.normal,
                     ),
                   ],
@@ -66,14 +67,14 @@ class ViewsScreen extends StatelessWidget {
               right: 0.05,
               child: Card(
                 elevation: 10,
-                shadowColor: Colors.white,
+                shadowColor: AppColors.kWhite,
                 child: Container(
                   padding: AppPadding.allPaddingGeometry(
                     context: context,
                     value: 0.02,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: AppColors.kBlack,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   width: Dimensions.setWidth(context: context, width: 0.40),
@@ -102,7 +103,7 @@ class ViewsScreen extends StatelessWidget {
                             fontSize: 0.05,
                             title: "Instagram views",
                             textAlign: TextAlign.left,
-                            color: Colors.white,
+                            color: AppColors.kWhite,
                             fontWeight: FontWeight.bold,
                           ),
                         ],
@@ -114,7 +115,7 @@ class ViewsScreen extends StatelessWidget {
                         fontSize: 0.05,
                         title: "10,000  Views",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                         fontWeight: FontWeight.w300,
                       ),
                       // V.space.
@@ -138,7 +139,7 @@ class ViewsScreen extends StatelessWidget {
                         fontSize: 0.05,
                         title: "12\$",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                         fontWeight: FontWeight.bold,
                       ),
                       // V.space.
@@ -169,7 +170,7 @@ class ViewsScreen extends StatelessWidget {
                         child: LikesTextWidget(
                           fontSize: 0.02,
                           title: 'Instantly',
-                          color: Colors.black,
+                          color: AppColors.kBlack,
                         ),
                       ),
                     ],
@@ -202,7 +203,7 @@ class ViewsScreen extends StatelessWidget {
                       fontSize: 0.06,
                       title:
                           'Why Should I Choose InstaRoi When I Buy Instagram Views?',
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.bold,
                     ),
 
@@ -212,7 +213,7 @@ class ViewsScreen extends StatelessWidget {
                       title:
                           "Tik Tok Views are important on Instagram as they can create a snowball effect. The more views that a post gets, the more likely it is that even larger audiences will be exposed to it. "
                           "\nThat’s basically the reason videos go viral! But even if you’ve been getting a constant increase in your views, you can still benefit from getting additional engagement through our services.",
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.normal,
                     ),
 
@@ -221,14 +222,14 @@ class ViewsScreen extends StatelessWidget {
                       fontSize: 0.03,
                       title:
                           "Check what your answers will be to these questions:",
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.w400,
                     ),
 
                     LikesTextWidget(
                       textAlign: TextAlign.left,
                       fontSize: 0.04,
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       title:
                           "Do you feel like your progress is going too slowly and you’re being surpassed by the competition?\n"
                           " Are you going to run a promotion where extra engagement can mean more sales?\n "
@@ -245,7 +246,7 @@ class ViewsScreen extends StatelessWidget {
                       title:
                           "If you answered yes to even one of these questions, we’re confident that you’ll find great value in our services. And for as little as \$1,"
                           " you can get the compounding benefit that views have to offer.",
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.normal,
                     ),
                   ],
@@ -268,7 +269,7 @@ class ViewsScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 fontSize: 0.06,
                 title: 'How Many Instagram views?',
-                color: Colors.white,
+                color: AppColors.kWhite,
                 fontWeight: FontWeight.bold,
               ),
 
@@ -285,7 +286,7 @@ class ViewsScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   fontSize: 0.03,
                   title: "Let's Go!",
-                  color: Colors.white,
+                  color: AppColors.kWhite,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -299,7 +300,7 @@ class ViewsScreen extends StatelessWidget {
                   fontSize: 0.03,
                   title:
                       "We strive to provide Instagram users with a variety of services so they can find something fitting both their needs and budget. Whether you’re just trying out what we can do for your account or are going for maximum impact, rest assured that the same high-level services will be delivered no matter what. These are some of our popular packages; choose one and get to the checkout page instantly!",
-                  color: Colors.white,
+                  color: AppColors.kWhite,
                 ),
               ),
 
@@ -362,7 +363,7 @@ class ViewsScreen extends StatelessWidget {
                           textAlign: TextAlign.left,
                           fontSize: 0.06,
                           title: 'Let’s Get Started - Buy Instagram Views',
-                          color: Colors.white,
+                          color: AppColors.kWhite,
                           fontWeight: FontWeight.bold,
                         ),
                         // Our exclusive views will help increase engagement on your Instagram profile.
@@ -370,7 +371,7 @@ class ViewsScreen extends StatelessWidget {
                           textAlign: TextAlign.left,
                           fontSize: 0.04,
                           title:"Our exclusive views will help increase engagement on your Instagram profile.",
-                          color: Colors.white,
+                          color: AppColors.kWhite,
                           fontWeight: FontWeight.normal,
                         ),
                         Box.verticalBox(context: context, height: 0.04),
@@ -425,13 +426,13 @@ class ViewsScreen extends StatelessWidget {
                           "Here are More Reasons to Buy Instagram Views from InstaRoi:",
                       textAlign: TextAlign.left,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                     ),
                     LikesTextWidget(
                       fontSize: 0.03,
                       title:"As a reputable provider of various types of growth support for your Instagram account, InstaRoi guarantees the delivery of legitimate Instagram views. If you’re not convinced that we’re the best choice for getting views for your posts, there are a number of reasons that should win you over:",
                       textAlign: TextAlign.left,
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                     ),
                   ],
                 ),
@@ -444,7 +445,7 @@ class ViewsScreen extends StatelessWidget {
                     fontSize: 0.03,
                     title:"Instagram’s algorithms change all the time to better reflect the posts people are interested in. And we’ve seen how free Instagram services seemed to do well at first, only for them to get banned later on, even with creators who have been around for a long time. That’s why you need experts to help you gain traction on your video. The last thing we want to happen is for all your hard work to be for nothing. With InstaRoi, you can be sure that your account isn’t jeopardized. We take all measures necessary to maximize results while minimizing the risks.",
                     textAlign: TextAlign.left,
-                    color: Colors.white,
+                    color: AppColors.kWhite,
                   ),
                 ],
               ),
@@ -456,7 +457,7 @@ class ViewsScreen extends StatelessWidget {
                     fontSize: 0.03,
                     title:"You may not get free Instagram views from us, but it’s the closest that there is. We’re proud to offer the best rates for Instagram video views that you’ll find out there. Partly thanks to the trust of our loyal clientele, we were able to scale our business to offer better prices for what we bring to the market. Our team does this while still delivering top-notch quality services and support. You can purchase from us for as low as just \$1. Once you’re more confident about the results that we can deliver, we can provide greater boosts as well.",
                     textAlign: TextAlign.left,
-                    color: Colors.white,
+                    color: AppColors.kWhite,
                   ),
                 ],
               ),
@@ -468,7 +469,7 @@ class ViewsScreen extends StatelessWidget {
                     fontSize: 0.03,
                     title:"One part of a strategy may work on its own, but the results are always better when they’re coordinated. Apart from Instagram views, why not consider likes, follows, and shares as well? We can offer all these to improve the impact of the strategy. The process of purchasing these is the same as with views. Everything is available at affordable rates, ensuring that even with multiple support services from us, we won’t burn a hole in your pocket.",
                     textAlign: TextAlign.left,
-                    color: Colors.white,
+                    color: AppColors.kWhite,
                   ),
                 ],
               ),
@@ -499,13 +500,13 @@ class ViewsScreen extends StatelessWidget {
                         title: 'Step 1: Select Your Package',
                         textAlign: TextAlign.left,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                       LikesTextWidget(
                         fontSize: 0.03,
                         title: "Choose your desired Instagram views using our slider. For starters, try our affordable 2,500 views for just a dollar. For the best value, our largest package offers significant discounts. Click the order button to proceed to the next step.",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                     ],
                   ),
@@ -517,13 +518,13 @@ class ViewsScreen extends StatelessWidget {
                         title: 'Step 2: Review Your Order Details',
                         textAlign: TextAlign.left,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                       LikesTextWidget(
                         fontSize: 0.03,
                         title: "Proceed to checkout and ensure all details, especially your username, are accurate. Remember, purchases are final, with refunds applicable only under specific conditions. Your satisfaction with our service is our priority.",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                     ],
                   ),
@@ -535,13 +536,13 @@ class ViewsScreen extends StatelessWidget {
                         title: 'Step 3: Make Your Payment',
                         textAlign: TextAlign.left,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                       LikesTextWidget(
                         fontSize: 0.03,
                         title: "We accept PayPal, Visa, and Mastercard for seamless transactions. After ordering, you'll receive a confirmation email with view delivery details. Please set your Instagram account to public to guarantee a smooth and effective engagement boost.",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                     ],
                   ),
@@ -560,13 +561,13 @@ class ViewsScreen extends StatelessWidget {
                         title: "Step 4: After Payment",
                         textAlign: TextAlign.left,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                       LikesTextWidget(
                         fontSize: 0.03,
                         title:"Once your purchase is complete, relax! Delivery times vary based on your preferences and our algorithm's efficiency. Our dedicated customer support is always available for any queries or specific requests regarding your order.",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                     ],
                   ),

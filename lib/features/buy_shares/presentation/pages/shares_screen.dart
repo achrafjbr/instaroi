@@ -6,6 +6,7 @@ import 'package:insta_roi/core/responsiveness/responsive_component/box.dart';
 
 import '../../../../core/responsiveness/responsive_component/app_padding.dart';
 import '../../../../core/responsiveness/responsive_component/dimensions.dart';
+import '../../../../utils/app_colors.dart';
 import '../../../buy_likes/presentation/widgets/likes_button_widget.dart';
 import '../../../buy_likes/presentation/widgets/likes_text_widget.dart';
 import '../../../home/presentation/widgets/home_capsule_widget.dart';
@@ -44,7 +45,7 @@ class SharesScreen extends StatelessWidget {
                       textAlign: TextAlign.left,
                       fontSize: 0.06,
                       title: 'Buy TikTok Shares',
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.bold,
                     ),
                     // We provide high-quality TikTok likes from real and active TikTok users, Join our loyal customer base who already benefits from the best TikTok likes possible.
@@ -52,7 +53,7 @@ class SharesScreen extends StatelessWidget {
                       textAlign: TextAlign.left,
                       fontSize: 0.04,
                       title:"Buy TikTok Shares and boost your page’s engagement rates. We provide real Shares for affordable prices. Try our packages today!",
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.normal,
                     ),
                   ],
@@ -67,14 +68,14 @@ class SharesScreen extends StatelessWidget {
               right: 0.05,
               child: Card(
                 elevation: 10,
-                shadowColor: Colors.white,
+                shadowColor: AppColors.kWhite,
                 child: Container(
                   padding: AppPadding.allPaddingGeometry(
                     context: context,
                     value: 0.02,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: AppColors.kBlack,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   width: Dimensions.setWidth(context: context, width: 0.40),
@@ -103,7 +104,7 @@ class SharesScreen extends StatelessWidget {
                             fontSize: 0.05,
                             title: "Instagram Shares",
                             textAlign: TextAlign.left,
-                            color: Colors.white,
+                            color: AppColors.kWhite,
                             fontWeight: FontWeight.bold,
                           ),
                         ],
@@ -115,7 +116,7 @@ class SharesScreen extends StatelessWidget {
                         fontSize: 0.05,
                         title: "1000 Shares",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                         fontWeight: FontWeight.w300,
                       ),
                       // V.space.
@@ -138,7 +139,7 @@ class SharesScreen extends StatelessWidget {
                         fontSize: 0.05,
                         title: "12\$",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                         fontWeight: FontWeight.bold,
                       ),
                       // V.space.
@@ -169,7 +170,7 @@ class SharesScreen extends StatelessWidget {
                         child: LikesTextWidget(
                           fontSize: 0.02,
                           title: 'Instantly',
-                          color: Colors.black,
+                          color: AppColors.kBlack,
                         ),
                       ),
                     ],
@@ -209,7 +210,7 @@ class SharesScreen extends StatelessWidget {
                           textAlign: TextAlign.left,
                           fontSize: 0.06,
                           title: 'Dominate Instagram with InstaRoi',
-                          color: Colors.white,
+                          color: AppColors.kWhite,
                           fontWeight: FontWeight.bold,
                         ),
                         // Expect top-quality products and rapid growth for your page and videos, securely.
@@ -218,7 +219,7 @@ class SharesScreen extends StatelessWidget {
                           fontSize: 0.04,
                           title:
                           'Expect top-quality products and rapid growth for your page and videos, securely.',
-                          color: Colors.white,
+                          color: AppColors.kWhite,
                           fontWeight: FontWeight.normal,
                         ),
                         Box.verticalBox(context: context, height: 0.04),
@@ -262,7 +263,7 @@ class SharesScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 fontSize: 0.06,
                 title: 'How Many Instagram Shares?',
-                color: Colors.white,
+                color: AppColors.kWhite,
                 fontWeight: FontWeight.bold,
               ),
 
@@ -280,7 +281,7 @@ class SharesScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   fontSize: 0.03,
                   title: "LET'S GO",
-                  color: Colors.white,
+                  color: AppColors.kWhite,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -294,7 +295,7 @@ class SharesScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   fontSize: 0.03,
                   title:'These are some of our popular packages, Choose one and get to the checkout page instantly!',
-                  color: Colors.white,
+                  color: AppColors.kWhite,
                 ),
               ),
 
@@ -350,13 +351,13 @@ class SharesScreen extends StatelessWidget {
                         title: 'Speedy Delivery',
                         textAlign: TextAlign.left,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                       LikesTextWidget(
                         fontSize: 0.03,
                         title: "Choose us for Instagram services, and just focus on your creative content. Relax while we streamline the process, delivering results in just 30-40 minutes. Experience hassle-free, quick service with us",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                     ],
                   ),
@@ -368,13 +369,13 @@ class SharesScreen extends StatelessWidget {
                         title: '100% Confidential',
                         textAlign: TextAlign.left,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                       LikesTextWidget(
                         fontSize: 0.03,
                         title: "Elevate your Instagram presence subtly with our special offers. Enjoy natural growth - just share your username. We respect your privacy, but remember to keep your account public for optimal outcomes.",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                     ],
                   ),
@@ -386,13 +387,13 @@ class SharesScreen extends StatelessWidget {
                         title: 'Lowest Prices',
                         textAlign: TextAlign.left,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                       LikesTextWidget(
                         fontSize: 0.03,
                         title: "Join our Instagram community for transparent, value-driven pricing. Our tailored services ensure your profile shows natural growth. We customize each package to meet your specific needs for an organic Instagram presence.",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                     ],
                   ),
@@ -411,13 +412,13 @@ class SharesScreen extends StatelessWidget {
                         title: 'Makes You Viral',
                         textAlign: TextAlign.left,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                       LikesTextWidget(
                         fontSize: 0.03,
                         title: "Enhance your Instagram videos with our strategic engagement boost. Likes are key for trendsetting on the For You Page. We'll keep your profile trending and visible, ensuring your content always makes an impact.",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                     ],
                   ),
@@ -429,13 +430,13 @@ class SharesScreen extends StatelessWidget {
                         title: 'Best Service ever',
                         textAlign: TextAlign.left,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                       LikesTextWidget(
                         fontSize: 0.03,
                         title:"Keep your Instagram content trending with our expert strategies. We align your videos with high engagement rates for FYP prominence. Prepare to make your TikTok profile the highlight of discussions and trends.",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                     ],
                   ),
@@ -447,13 +448,13 @@ class SharesScreen extends StatelessWidget {
                         title: '24 /7 Support',
                         textAlign: TextAlign.left,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                       LikesTextWidget(
                         fontSize: 0.03,
                         title: "Our Instagram customer support is always at your service. For any queries about our packages or assistance, reach out via live chat or email. We're dedicated to making your TikTok experience smooth and successful.",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                       ),
                     ],
                   ),

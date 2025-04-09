@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:insta_roi/core/responsiveness/responsive_component/dimensions.dart';
 import 'package:insta_roi/features/home/presentation/widgets/home_text_widget.dart';
 
+import '../../../../utils/app_colors.dart';
+
 class HomeButtonWidget extends StatelessWidget {
   const HomeButtonWidget({
     super.key,
@@ -30,7 +32,7 @@ class HomeButtonWidget extends StatelessWidget {
         label: HomeTextWidget(
           fontSize: fontSize,
           title: label,
-          color: Colors.white,
+          color: AppColors.kWhite,
           textAlign: TextAlign.left,
           fontWeight: FontWeight.bold,
         ),
@@ -38,14 +40,14 @@ class HomeButtonWidget extends StatelessWidget {
           elevation: 5,
           iconSize: 25,
           iconAlignment: IconAlignment.start,
-          textStyle: TextStyle(color: Colors.white),
+          textStyle: TextStyle(color: AppColors.kWhite),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
-          shadowColor: Colors.white,
+          shadowColor: AppColors.kWhite,
           backgroundColor: buttonColor,
         ),
-        icon: Icon(icon, color: Colors.white),
+        icon: Icon(icon, color: AppColors.kWhite),
       ),
     );
   }

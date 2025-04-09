@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:insta_roi/core/responsiveness/responsive_component/app_padding.dart';
 import 'package:insta_roi/features/buy_likes/presentation/widgets/likes_text_widget.dart';
 
+import '../../../../utils/app_colors.dart';
+
 class FollowersCardWidget extends StatelessWidget {
   const FollowersCardWidget({
     super.key,
@@ -20,7 +22,7 @@ class FollowersCardWidget extends StatelessWidget {
         padding: AppPadding.allPaddingGeometry(context: context, value: 0.01),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.black26,
+          color:Colors.black26,
           boxShadow: [BoxShadow(color: Colors.blueGrey, offset: Offset(0, 1))],
         ),
         child: Column(
@@ -31,7 +33,7 @@ class FollowersCardWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               fontSize: 0.03,
               title: 'Buy',
-              color: Colors.white,
+              color: AppColors.kWhite,
               fontWeight: FontWeight.bold,
             ),
             // Text :followers number
@@ -39,7 +41,7 @@ class FollowersCardWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               fontSize: 0.04,
               title: followerNumber.toString(),
-              color: Colors.white,
+              color: AppColors.kWhite,
               fontWeight: FontWeight.bold,
             ),
             // Text : Instagram follower
@@ -47,7 +49,7 @@ class FollowersCardWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               fontSize: 0.02,
               title: 'Instagram followers',
-              color: Colors.white,
+              color: AppColors.kWhite,
               fontWeight: FontWeight.bold,
             ),
             // Text : follower price.
@@ -55,7 +57,7 @@ class FollowersCardWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               fontSize: 0.03,
               title: '\$$followerPrice',
-              color: Colors.white,
+              color: AppColors.kWhite,
               fontWeight: FontWeight.bold,
             ),
           ],

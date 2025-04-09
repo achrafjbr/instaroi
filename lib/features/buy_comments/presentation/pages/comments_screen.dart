@@ -6,6 +6,7 @@ import '../../../../core/core_component/core_wigets/page_parts.dart';
 import '../../../../core/responsiveness/responsive_component/app_padding.dart';
 import '../../../../core/responsiveness/responsive_component/box.dart';
 import '../../../../core/responsiveness/responsive_component/dimensions.dart';
+import '../../../../utils/app_colors.dart';
 import '../../../buy_likes/presentation/widgets/likes_button_widget.dart';
 import '../../../buy_likes/presentation/widgets/likes_card_widget.dart';
 import '../../../buy_likes/presentation/widgets/likes_expansion_tile_widget.dart';
@@ -44,7 +45,7 @@ class CommentsScreen extends StatelessWidget {
                       textAlign: TextAlign.left,
                       fontSize: 0.06,
                       title: 'Buy TikTok Comments',
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.bold,
                     ),
                     // We provide high-quality Instagram likes from real and active Instagram users, Join our loyal customer base who already benefits from the best Instagram likes possible.
@@ -52,7 +53,7 @@ class CommentsScreen extends StatelessWidget {
                       textAlign: TextAlign.left,
                       fontSize: 0.04,
                       title:"Buy TikTok Comments - use our bank of comments or provide your own. Competitive prices are guaranteed. Check our discounts today!",
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                       fontWeight: FontWeight.normal,
                     ),
                   ],
@@ -67,14 +68,14 @@ class CommentsScreen extends StatelessWidget {
               right: 0.05,
               child: Card(
                 elevation: 10,
-                shadowColor: Colors.white,
+                shadowColor: AppColors.kWhite,
                 child: Container(
                   padding: AppPadding.allPaddingGeometry(
                     context: context,
                     value: 0.02,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: AppColors.kBlack,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   width: Dimensions.setWidth(context: context, width: 0.40),
@@ -103,7 +104,7 @@ class CommentsScreen extends StatelessWidget {
                             fontSize: 0.05,
                             title: "Tiktok Comments",
                             textAlign: TextAlign.left,
-                            color: Colors.white,
+                            color: AppColors.kWhite,
                             fontWeight: FontWeight.bold,
                           ),
                         ],
@@ -115,7 +116,7 @@ class CommentsScreen extends StatelessWidget {
                         fontSize: 0.05,
                         title: "10,000  Views",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                         fontWeight: FontWeight.w300,
                       ),
                       // V.space.
@@ -139,7 +140,7 @@ class CommentsScreen extends StatelessWidget {
                         fontSize: 0.05,
                         title: "12\$",
                         textAlign: TextAlign.left,
-                        color: Colors.white,
+                        color: AppColors.kWhite,
                         fontWeight: FontWeight.bold,
                       ),
                       // V.space.
@@ -170,7 +171,7 @@ class CommentsScreen extends StatelessWidget {
                         child: LikesTextWidget(
                           fontSize: 0.02,
                           title: 'Instantly',
-                          color: Colors.black,
+                          color: AppColors.kBlack,
                         ),
                       ),
                     ],
@@ -194,7 +195,7 @@ class CommentsScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 fontSize: 0.06,
                 title: 'How many TikTok comments?',
-                color: Colors.white,
+                color: AppColors.kWhite,
                 fontWeight: FontWeight.bold,
               ),
 
@@ -211,7 +212,7 @@ class CommentsScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   fontSize: 0.03,
                   title: "Let's Go!",
-                  color: Colors.white,
+                  color: AppColors.kWhite,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -224,7 +225,7 @@ class CommentsScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   fontSize: 0.03,
                   title:"These are some of our popular packages, Choose one and get to the checkout page instantly!",
-                  color: Colors.white,
+                  color: AppColors.kWhite,
                 ),
               ),
 
@@ -287,14 +288,14 @@ class CommentsScreen extends StatelessWidget {
                           textAlign: TextAlign.left,
                           fontSize: 0.06,
                           title: 'Let’s Start - Buy TikTok Comments',
-                          color: Colors.white,
+                          color: AppColors.kWhite,
                           fontWeight: FontWeight.bold,
                         ),
                         HomeTextWidget(
                           textAlign: TextAlign.left,
                           fontSize: 0.04,
                           title:"Our exclusive comments will help increase engagement on your TikTok profile.",
-                          color: Colors.white,
+                          color: AppColors.kWhite,
                           fontWeight: FontWeight.normal,
                         ),
                         Box.verticalBox(context: context, height: 0.04),
@@ -328,7 +329,7 @@ class CommentsScreen extends StatelessWidget {
         // Part 4.
         Container(
           padding: AppPadding.allPaddingGeometry(context: context, value: 0.05),
-          color: Colors.black45,
+          color: AppColors.kBlack,
           child: Column(
             spacing: 8,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -348,13 +349,13 @@ class CommentsScreen extends StatelessWidget {
                       title:"Still not convinced? Here are more reasons to buy Comments:",
                       textAlign: TextAlign.left,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                     ),
                     LikesTextWidget(
                       fontSize: 0.03,
                       title:"We promise to provide the best comments, so your page will get exactly what it deserves!",
                       textAlign: TextAlign.left,
-                      color: Colors.white,
+                      color: AppColors.kWhite,
                     ),
                   ],
                 ),
@@ -367,7 +368,7 @@ class CommentsScreen extends StatelessWidget {
                     fontSize: 0.03,
                     title:"The algorithm is on the hunt for videos with comments, to know which content performs best.\n Buying comments is the ideal way to get the algorithm’s attention.",
                     textAlign: TextAlign.left,
-                    color: Colors.white,
+                    color: AppColors.kWhite,
                   ),
                 ],
               ),
@@ -379,7 +380,7 @@ class CommentsScreen extends StatelessWidget {
                     fontSize: 0.03,
                     title:"We emailed you a tracking order link and the invoice, so you’ll keep up with everything there is to know about your order.",
                     textAlign: TextAlign.left,
-                    color: Colors.white,
+                    color: AppColors.kWhite,
                   ),
                 ],
               ),
@@ -391,7 +392,7 @@ class CommentsScreen extends StatelessWidget {
                     fontSize: 0.03,
                     title:"We’re one of the most dedicated providers in the industry, offering all the services TikTokers need at affordable prices.",
                     textAlign: TextAlign.left,
-                    color: Colors.white,
+                    color: AppColors.kWhite,
                   ),
                 ],
               ),

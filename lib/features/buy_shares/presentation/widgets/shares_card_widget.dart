@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:insta_roi/core/responsiveness/responsive_component/app_padding.dart';
 import 'package:insta_roi/features/buy_likes/presentation/widgets/likes_text_widget.dart';
 
+import '../../../../utils/app_colors.dart';
+
 class SharesCardWidget extends StatelessWidget {
   const SharesCardWidget({
     super.key,
@@ -31,7 +33,7 @@ class SharesCardWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               fontSize: 0.03,
               title: 'Buy',
-              color: Colors.white,
+              color: AppColors.kWhite,
               fontWeight: FontWeight.bold,
             ),
             // Text :shares number
@@ -39,7 +41,7 @@ class SharesCardWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               fontSize: 0.04,
               title: shareNumber.toString(),
-              color: Colors.white,
+              color: AppColors.kWhite,
               fontWeight: FontWeight.bold,
             ),
             // Text : Instagram share
@@ -47,7 +49,7 @@ class SharesCardWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               fontSize: 0.02,
               title: 'Instagram share',
-              color: Colors.white,
+              color: AppColors.kWhite,
               fontWeight: FontWeight.bold,
             ),
             // Text : share price.
@@ -55,7 +57,7 @@ class SharesCardWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               fontSize: 0.03,
               title: '\$$sharePrice',
-              color: Colors.white,
+              color: AppColors.kWhite,
               fontWeight: FontWeight.bold,
             ),
           ],

@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:insta_roi/features/home/presentation/widgets/home_text_widget.dart';
 
 import '../../../../core/responsiveness/responsive_component/dimensions.dart';
+import '../../../../utils/app_colors.dart';
 
 class HomeCapsuleWidget extends StatelessWidget {
   const HomeCapsuleWidget({
@@ -49,7 +50,7 @@ class HomeCapsuleWidget extends StatelessWidget {
                 textAlign: TextAlign.left,
                 fontSize: 0.06,
                 title: leftPartTitle,
-                color: Colors.white,
+                color: AppColors.kWhite,
                 fontWeight: FontWeight.bold,
               ),
               // SubTitle
@@ -57,7 +58,7 @@ class HomeCapsuleWidget extends StatelessWidget {
                 textAlign: TextAlign.left,
                 fontSize: 0.04,
                 title: leftPartSubTitle,
-                color: Colors.white,
+                color: AppColors.kWhite,
                 fontWeight: FontWeight.normal,
               ),
             ],
@@ -85,7 +86,7 @@ class HomeCapsuleWidget extends StatelessWidget {
                 textAlign: TextAlign.left,
                 fontSize: 0.06,
                 title: rightPartTitle,
-                color: Colors.white,
+                color: AppColors.kWhite,
                 fontWeight: FontWeight.bold,
               ),
               // SubTitle
@@ -93,7 +94,7 @@ class HomeCapsuleWidget extends StatelessWidget {
                 textAlign: TextAlign.left,
                 fontSize: 0.04,
                 title: rightPartSubTitle,
-                color: Colors.white,
+                color: AppColors.kWhite,
                 fontWeight: FontWeight.normal,
               ),
             ],

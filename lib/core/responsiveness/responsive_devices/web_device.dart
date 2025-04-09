@@ -12,6 +12,7 @@ class WebDevice extends StatelessWidget {
     return Scaffold(
       appBar: FixedAppbar.navigationBar(
         NavigationCubit.instance(context).changePage,
+        context
       ),
       body: BlocBuilder<NavigationCubit, NavigationState>(
         builder: (context, state) {

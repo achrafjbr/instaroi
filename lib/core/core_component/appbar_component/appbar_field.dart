@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/app_colors.dart';
+
 class AppBarField {
   // Helper Widget for Navigation Items
  static Widget buildNavItem(IconData icon, String label, VoidCallback onTap)
@@ -10,11 +12,11 @@ class AppBarField {
         onTap: onTap,
         child: Row(
           children: [
-            Icon(icon, color: Colors.white),
+            Icon(icon, color:AppColors.kWhite),
             const SizedBox(width: 4),
             Text(
               label,
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color:AppColors.kWhite),
             ),
           ],
         ),
@@ -28,7 +30,7 @@ class AppBarField {
       onTap: onTap,
       child: Stack(
         children: [
-          Icon(Icons.shopping_cart, color: Colors.white, size: 24),
+          Icon(Icons.shopping_cart, color:AppColors.kWhite, size: 24),
           Positioned(
             right: 0,
             child: Container(
@@ -40,7 +42,7 @@ class AppBarField {
               constraints: const BoxConstraints(minWidth: 15, minHeight: 15),
               child: const Text(
                 "0",
-                style: TextStyle(color: Colors.white, fontSize: 7),
+                style: TextStyle(color:AppColors.kWhite, fontSize: 7),
                 textAlign: TextAlign.center,
               ),
             ),
