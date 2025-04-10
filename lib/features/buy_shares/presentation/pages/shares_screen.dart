@@ -232,7 +232,7 @@ class SharesScreen extends StatelessWidget {
 
         // Part 2
         PageParts(
-          color: Colors.black45,
+          color: AppColors.kWhite,
 
           children: [
             AppPadding.onlyPadding(

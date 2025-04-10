@@ -11,7 +11,6 @@ import '../../../../utils/app_colors.dart';
 import '../../../../utils/functions.dart';
 import '../../../buy_likes/presentation/manager/likes_cubit.dart';
 import '../../../buy_likes/presentation/widgets/likes_button_widget.dart';
-import '../../../buy_likes/presentation/widgets/likes_card_widget.dart';
 import '../../../buy_likes/presentation/widgets/likes_expansion_tile_widget.dart';
 import '../../../buy_likes/presentation/widgets/likes_text_widget.dart';
 import '../../../home/presentation/widgets/home_capsule_widget.dart';
@@ -232,7 +231,7 @@ class CommentsScreen extends StatelessWidget {
         // Second part
         Container(
           padding: AppPadding.allPaddingGeometry(context: context, value: 0.05),
-          color: Colors.blueGrey,
+          color: AppColors.kWhite,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             spacing: 30,

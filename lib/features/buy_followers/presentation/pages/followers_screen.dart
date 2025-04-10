@@ -280,7 +280,7 @@ class FollowersScreen extends StatelessWidget {
 
         // Second part
         PageParts(
-          color: Colors.blueAccent,
+          color: AppColors.kWhite,
           children: [
             //Left part.
             AppPadding.onlyPadding(

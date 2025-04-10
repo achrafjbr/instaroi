@@ -233,7 +233,7 @@ class LikesScreen extends StatelessWidget {
 
         // Second part
         PageParts(
-          color: Colors.blueAccent,
+          color: AppColors.kWhite,
           children: [
             //Left part.
             AppPadding.onlyPadding(
@@ -307,7 +307,7 @@ class LikesScreen extends StatelessWidget {
           ],
         ),
 
-        // Thired part.
+        // Third part.
         Container(
           padding: AppPadding.allPaddingGeometry(context: context, value: 0.05),
           color: Colors.blueGrey,
