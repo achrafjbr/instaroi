@@ -65,6 +65,7 @@ class FixedAppbar {
 
             // Navigation Items
             Row(
+              spacing: 14.0,
               children: [
                 // Navigator for likes screen
                 AppBarField.buildNavItem(

@@ -5,6 +5,7 @@ import 'package:insta_roi/core/responsiveness/responsive_devices/mobile_device.d
 import 'package:insta_roi/core/responsiveness/responsive_devices/tablet_device.dart';
 import 'package:insta_roi/core/responsiveness/responsive_devices/web_device.dart';
 import 'package:insta_roi/core/themes.dart';
+import 'package:insta_roi/features/buy_likes/presentation/manager/likes_cubit.dart';
 import 'core/responsiveness/responsive_devices/devices.dart';
 
 void main() {
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       home: MultiBlocProvider(
         providers: [
           BlocProvider(create: (context)=>NavigationCubit()),
+          BlocProvider(create: (context)=>LikesCubit()),
         ],
         child: Devices(
           web: WebDevice(),

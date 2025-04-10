@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
       children: [
         // First top part.
         PageParts(
-          color: Colors.deepPurpleAccent,
+          color: AppColors.kSecondaryColor,
 
           children: [
             // Left Side.

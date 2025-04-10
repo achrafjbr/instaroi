@@ -7,7 +7,7 @@ class AppBarField {
  static Widget buildNavItem(IconData icon, String label, VoidCallback onTap)
   {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: InkWell(
         onTap: onTap,
         child: Row(

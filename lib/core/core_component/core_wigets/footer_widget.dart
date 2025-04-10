@@ -42,10 +42,11 @@ class FooterWidget extends StatelessWidget {
                   Icons.favorite,
                   'BUY INSTAGRAM LIKES',
                   () {
-                    NavigationCubit.instance(context)
-                        .changePage(const LikesScreen(),);
-
+                    NavigationCubit.instance(
+                      context,
+                    ).changePage(const LikesScreen());
                   },
+
                 ),
                 AppBarField.buildNavItem(
                   Icons.people_alt,
@@ -55,6 +56,7 @@ class FooterWidget extends StatelessWidget {
                       context,
                     ).changePage(const FollowersScreen());
                   },
+
                 ),
                 AppBarField.buildNavItem(
                   Icons.favorite,

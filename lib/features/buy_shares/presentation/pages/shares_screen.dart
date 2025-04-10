@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:insta_roi/core/core_component/core_wigets/footer_widget.dart';
 import 'package:insta_roi/core/core_component/core_wigets/page_parts.dart';
 import 'package:insta_roi/core/responsiveness/responsive_component/box.dart';
@@ -7,6 +8,8 @@ import 'package:insta_roi/core/responsiveness/responsive_component/box.dart';
 import '../../../../core/responsiveness/responsive_component/app_padding.dart';
 import '../../../../core/responsiveness/responsive_component/dimensions.dart';
 import '../../../../utils/app_colors.dart';
+import '../../../../utils/functions.dart';
+import '../../../buy_likes/presentation/manager/likes_cubit.dart';
 import '../../../buy_likes/presentation/widgets/likes_button_widget.dart';
 import '../../../buy_likes/presentation/widgets/likes_text_widget.dart';
 import '../../../home/presentation/widgets/home_capsule_widget.dart';
@@ -19,13 +22,15 @@ class SharesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LikesCubit instance = LikesCubit.instance(context);
+
     return ListView(
       physics: BouncingScrollPhysics(),
 
       children: [
         // Part 1
         PageParts(
-          color: Colors.purpleAccent,
+          color: AppColors.kSecondaryColor,
           children: [
             // Left Side.
             AppPadding.onlyPadding(
@@ -44,15 +49,15 @@ class SharesScreen extends StatelessWidget {
                     LikesTextWidget(
                       textAlign: TextAlign.left,
                       fontSize: 0.06,
-                      title: 'Buy TikTok Shares',
+                      title: 'Buy Instagram Shares',
                       color: AppColors.kWhite,
                       fontWeight: FontWeight.bold,
                     ),
-                    // We provide high-quality TikTok likes from real and active TikTok users, Join our loyal customer base who already benefits from the best TikTok likes possible.
+                    // We provide high-quality Instagram likes from real and active Instagram users, Join our loyal customer base who already benefits from the best Instagram likes possible.
                     LikesTextWidget(
                       textAlign: TextAlign.left,
                       fontSize: 0.04,
-                      title:"Buy TikTok Shares and boost your page’s engagement rates. We provide real Shares for affordable prices. Try our packages today!",
+                      title:"Buy Instagram Shares and boost your page’s engagement rates. We provide real Shares for affordable prices. Try our packages today!",
                       color: AppColors.kWhite,
                       fontWeight: FontWeight.normal,
                     ),
@@ -62,118 +67,162 @@ class SharesScreen extends StatelessWidget {
             ),
 
             // Right Side.
+            // Right Side.
             AppPadding.onlyPadding(
               context: context,
               top: 0.10,
               right: 0.05,
-              child: Card(
-                elevation: 10,
-                shadowColor: AppColors.kWhite,
-                child: Container(
-                  padding: AppPadding.allPaddingGeometry(
-                    context: context,
-                    value: 0.02,
-                  ),
-                  decoration: BoxDecoration(
-                    color: AppColors.kBlack,
+              child: Container(
+                constraints: BoxConstraints(
+                  maxWidth: Dimensions.setWidth(context: context, width: 0.4),
+                ),
+                child: Card(
+                  color: AppColors.kBlack,
+                  shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  width: Dimensions.setWidth(context: context, width: 0.40),
-                  child: Column(
-                    children: [
-                      // Icons share,Text: Instagram Share
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: 6,
+                  elevation: 10,
+                  shadowColor: AppColors.kWhite,
+                  child: BlocBuilder<LikesCubit, LikesState>(
+                    builder: (context, state) {
+                      return Column(
                         children: [
-                          SizedBox(
+                          // Icons favorite,Text: Instagram Likes
+                          Container(
+                            decoration: BoxDecoration(
+                              color: AppColors.kPrimaryColor?.withOpacity(0.3),
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(5),
+                                topLeft: Radius.circular(5),
+                              ),
+                            ),
                             height: Dimensions.setHeight(
                               context: context,
-                              height: 0.04,
+                              height: 0.10,
                             ),
-                            width: Dimensions.setWidth(
-                              context: context,
-                              width: 0.04,
-                            ),
-                            child: Icon(
-                              Icons.compare_arrows_sharp,
-                              color: Colors.pinkAccent,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              spacing: 6,
+                              children: [
+                                Icon(
+                                  Icons.favorite,
+                                  color: AppColors.kPrimaryColor,
+                                  size: Dimensions.setFontDimension(
+                                    context: context,
+                                    value: 0.06,
+                                  ),
+                                ),
+                                LikesTextWidget(
+                                  fontSize: 0.04,
+                                  title: "Instagram Shares",
+                                  textAlign: TextAlign.center,
+                                  color: AppColors.kWhite,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ],
                             ),
                           ),
-                          LikesTextWidget(
-                            fontSize: 0.05,
-                            title: "Instagram Shares",
-                            textAlign: TextAlign.left,
-                            color: AppColors.kWhite,
-                            fontWeight: FontWeight.bold,
+
+                          Container(
+                            padding: AppPadding.allPaddingGeometry(
+                              context: context,
+                              value: 0.02,
+                            ),
+                            child: Column(
+                              children: [
+                                // V.space.
+                                Box.verticalBox(context: context, height: 0.02),
+                                // Text : e.g: 100 Shares
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  spacing:3,
+                                  children: [
+                                    LikesTextWidget(
+                                      fontSize: 0.05,
+                                      title:
+                                      '${context.read<LikesCubit>().initialLikesNumber}',
+                                      textAlign: TextAlign.left,
+                                      color: AppColors.kWhite,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                    LikesTextWidget(
+                                      fontSize: 0.04,
+                                      title:
+                                      'Shares',
+                                      textAlign: TextAlign.left,
+                                      color: AppColors.kWhite,
+                                      fontWeight: FontWeight.w200,
+                                    ),
+                                  ],
+                                ),
+                                // V.space.
+                                Box.verticalBox(context: context, height: 0.01),
+
+                                // Slider that increase or decrease number of Shares,
+                                // And up on Shares the price of purchase increase or decrease.
+                                Slider(
+                                  value: instance.initialLikesNumber.toDouble(),
+                                  onChanged:
+                                      (likesNumber) =>
+                                      instance.defineLikesNumber(
+                                        likesNumber.toInt(),
+                                      ),
+                                  divisions: Functions.divisionSliderSteps(
+                                    15000,
+                                    1000,
+                                    500,
+                                  ),
+                                  min: 1000,
+                                  max: 15000,
+                                ),
+
+                                // V.space.
+                                Box.verticalBox(context: context, height: 0.01),
+                                // price.
+                                LikesTextWidget(
+                                  fontSize: 0.05,
+                                  title: "${instance.currentPrice}\$",
+                                  textAlign: TextAlign.left,
+                                  color: AppColors.kWhite,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                // V.space.
+                                Box.verticalBox(context: context, height: 0.01),
+                                // V.space.
+                                Box.verticalBox(context: context, height: 0.01),
+                                // Button : Order Now
+                                LikesButtonWidget(
+                                  label: 'Order Now',
+                                  fontSize: 0.04,
+                                  buttonColor: AppColors.kPrimaryColor,
+                                  onTap: () {},
+                                  height: 0.10,
+                                  width: 0.30,
+                                ),
+                                // V.space.
+                                Box.verticalBox(context: context, height: 0.02),
+                                // Text : instantly.
+                                Container(
+                                  padding: AppPadding.allPaddingGeometry(
+                                    context: context,
+                                    value: 0.01,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    color: Colors.amber,
+                                  ),
+                                  child: LikesTextWidget(
+                                    fontSize: 0.02,
+                                    title: 'Instantly',
+                                    color: AppColors.kBlack,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
-                      ),
-                      // V.space.
-                      Box.verticalBox(context: context, height: 0.02),
-                      // Text : e.g: 100 Likes
-                      LikesTextWidget(
-                        fontSize: 0.05,
-                        title: "1000 Shares",
-                        textAlign: TextAlign.left,
-                        color: AppColors.kWhite,
-                        fontWeight: FontWeight.w300,
-                      ),
-                      // V.space.
-                      Box.verticalBox(context: context, height: 0.01),
-
-                      // Slider that increase or decrease number of likes,
-                      // And up on likes the price of purchase increase or decrease.
-                      Slider(
-                        value: 1,
-                        onChanged: (price) {},
-                        thumbColor: Colors.purpleAccent,
-                        inactiveColor: Colors.black26,
-                        activeColor: Colors.grey.shade400,
-                        allowedInteraction: SliderInteraction.tapAndSlide,
-                      ),
-                      // V.space.
-                      Box.verticalBox(context: context, height: 0.01),
-                      // price.
-                      LikesTextWidget(
-                        fontSize: 0.05,
-                        title: "12\$",
-                        textAlign: TextAlign.left,
-                        color: AppColors.kWhite,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      // V.space.
-                      Box.verticalBox(context: context, height: 0.01),
-                      // V.space.
-                      Box.verticalBox(context: context, height: 0.01),
-                      // Button : Order Now
-                      LikesButtonWidget(
-                        label: 'Order Now',
-                        fontSize: 0.05,
-                        buttonColor: Colors.purpleAccent,
-                        onTap: () {},
-                        height: 0.10,
-                        width: 0.30,
-                      ),
-                      // V.space.
-                      Box.verticalBox(context: context, height: 0.02),
-                      // Text : instantly.
-                      Container(
-                        padding: AppPadding.allPaddingGeometry(
-                          context: context,
-                          value: 0.01,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.amber,
-                        ),
-                        child: LikesTextWidget(
-                          fontSize: 0.02,
-                          title: 'Instantly',
-                          color: AppColors.kBlack,
-                        ),
-                      ),
-                    ],
+                      );
+                    },
                   ),
                 ),
               ),
@@ -434,7 +483,7 @@ class SharesScreen extends StatelessWidget {
                       ),
                       LikesTextWidget(
                         fontSize: 0.03,
-                        title:"Keep your Instagram content trending with our expert strategies. We align your videos with high engagement rates for FYP prominence. Prepare to make your TikTok profile the highlight of discussions and trends.",
+                        title:"Keep your Instagram content trending with our expert strategies. We align your videos with high engagement rates for FYP prominence. Prepare to make your Instagram profile the highlight of discussions and trends.",
                         textAlign: TextAlign.left,
                         color: AppColors.kWhite,
                       ),
@@ -452,7 +501,7 @@ class SharesScreen extends StatelessWidget {
                       ),
                       LikesTextWidget(
                         fontSize: 0.03,
-                        title: "Our Instagram customer support is always at your service. For any queries about our packages or assistance, reach out via live chat or email. We're dedicated to making your TikTok experience smooth and successful.",
+                        title: "Our Instagram customer support is always at your service. For any queries about our packages or assistance, reach out via live chat or email. We're dedicated to making your Instagram experience smooth and successful.",
                         textAlign: TextAlign.left,
                         color: AppColors.kWhite,
                       ),

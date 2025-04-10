@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_roi/features/buy_comments/presentation/pages/comments_screen.dart';
+import 'package:insta_roi/features/buy_shares/presentation/pages/shares_screen.dart';
 import 'package:insta_roi/features/buy_views/presentation/pages/views_screen.dart';
 import 'package:insta_roi/features/home/presentation/widgets/home_text_widget.dart';
 import 'package:insta_roi/utils/app_colors.dart';
@@ -17,11 +18,11 @@ class PopupMenu extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
       popUpAnimationStyle: AnimationStyle(
         duration: Durations.medium1,
-        curve: Curves.bounceIn,
+        curve: Curves.linearToEaseOut,
         reverseCurve: Curves.linearToEaseOut,
       ),
       position: PopupMenuPosition.under,
-      color: AppColors.kWhite,
+      color: AppColors.kBlack,
       onSelected: (value) {
         switch (value) {
           case 0:
@@ -31,46 +32,44 @@ class PopupMenu extends StatelessWidget {
             onTap(CommentsScreen());
             break;
           case 2:
-            onTap(CommentsScreen());
-            break;
-          case 3:
-            onTap(CommentsScreen());
+            onTap(SharesScreen());
             break;
         }
       },
+      offset: Offset(100,10),
+      tooltip: '',
       itemBuilder:
-          (BuildContext context) => [
-        PopupMenuItem(
-          value: 0,
-          child: PopUpMenuButton(
-            title: 'Buy Instagram Views',
-            icon: Icons.remove_red_eye_sharp,
-          ),
-        ),
-        PopupMenuItem(
-          value: 1,
-          child: PopUpMenuButton(
-            title: 'Buy Instagram Comments',
-            icon: Icons.comment,
-          ),
-        ),
-        PopupMenuItem(
-          value: 2,
-          child: PopUpMenuButton(
-            title: 'Buy Instagram Shares',
-            icon: Icons.share,
-          ),
-        ),
-      ],
+          (BuildContext context) =>
+              [
+                PopupMenuItem(
+                  value: 0,
+                  child: PopUpMenuButton(
+                    title: 'Buy Instagram Views',
+                    icon: Icons.remove_red_eye_sharp,
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 1,
+                  child: PopUpMenuButton(
+                    title: 'Buy Instagram Comments',
+                    icon: Icons.comment,
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 2,
+                  child: PopUpMenuButton(
+                    title: 'Buy Instagram Shares',
+                    icon: Icons.share,
+                  ),
+                ),
+              ],
+
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(Icons.tiktok, color: AppColors.kWhite),
           const SizedBox(width: 4),
-          Text(
-            'More',
-            style: const TextStyle(color: AppColors.kWhite),
-          ),
+          Text('More', style: const TextStyle(color: AppColors.kWhite)),
           const SizedBox(width: 4),
           Icon(Icons.arrow_drop_down, color: AppColors.kWhite),
         ],
@@ -91,12 +90,12 @@ class PopUpMenuButton extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       spacing: 8,
       children: [
-        Icon(icon, color: AppColors.kBlack, size: 17),
+        Icon(icon, color: AppColors.kWhite, size: 17),
         HomeTextWidget(
           fontSize: 0.03,
           title: title,
           textAlign: TextAlign.center,
-          color: AppColors.kBlack,
+          color: AppColors.kWhite,
         ),
       ],
     );

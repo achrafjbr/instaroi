@@ -124,8 +124,6 @@ class SupportScreen extends StatelessWidget {
                         color: Colors.black,
                         fontWeight: FontWeight.normal,
                       ),
-
-
                     ],
                   ),
                 ),

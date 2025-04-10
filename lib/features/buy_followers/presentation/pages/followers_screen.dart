@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/core_component/core_wigets/footer_widget.dart';
 import '../../../../core/core_component/core_wigets/page_parts.dart';
@@ -6,8 +7,10 @@ import '../../../../core/responsiveness/responsive_component/app_padding.dart';
 import '../../../../core/responsiveness/responsive_component/box.dart';
 import '../../../../core/responsiveness/responsive_component/dimensions.dart';
 import '../../../../utils/app_colors.dart';
+import '../../../../utils/functions.dart';
 import '../../../../utils/image_route.dart';
 import '../../../../utils/moved_container.dart';
+import '../../../buy_likes/presentation/manager/likes_cubit.dart';
 import '../../../buy_likes/presentation/widgets/likes_button_widget.dart';
 import '../../../buy_likes/presentation/widgets/likes_expansion_tile_widget.dart';
 import '../../../buy_likes/presentation/widgets/likes_text_widget.dart';
@@ -19,13 +22,15 @@ class FollowersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LikesCubit instance = LikesCubit.instance(context);
+
     return ListView(
       physics: BouncingScrollPhysics(),
 
       children: [
         // First Top part.
         PageParts(
-          color: Colors.purpleAccent,
+          color: AppColors.kSecondaryColor,
           children: [
             // Left Side.
             AppPadding.onlyPadding(
@@ -53,7 +58,7 @@ class FollowersScreen extends StatelessWidget {
                       textAlign: TextAlign.left,
                       fontSize: 0.04,
                       title:
-                      'We provide high-quality followers that will allow you to grow your social media presence through your Instagram account.',
+                          'We provide high-quality followers that will allow you to grow your social media presence through your Instagram account.',
                       color: AppColors.kWhite,
                       fontWeight: FontWeight.normal,
                     ),
@@ -67,126 +72,207 @@ class FollowersScreen extends StatelessWidget {
               context: context,
               top: 0.10,
               right: 0.05,
-              child: Card(
-                elevation: 10,
-                shadowColor: AppColors.kWhite,
-                child: Container(
-                  padding: AppPadding.allPaddingGeometry(
-                    context: context,
-                    value: 0.02,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  width: Dimensions.setWidth(context: context, width: 0.40),
-                  child: Column(
-                    children: [
-                      // Icons favorite,Text: Instagram Likes
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: 6,
-                        children: [
-                          SizedBox(
-                            height: Dimensions.setHeight(
-                              context: context,
-                              height: 0.04,
-                            ),
-                            width: Dimensions.setWidth(
-                              context: context,
-                              width: 0.04,
-                            ),
-                            child: Icon(
-                              Icons.people_outline,
-                              color: Colors.pinkAccent,
-                            ),
-                          ),
-                          LikesTextWidget(
-                            fontSize: 0.05,
-                            title: "Instagram Followers",
-                            textAlign: TextAlign.left,
-                            color: AppColors.kWhite,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ],
+              child: Column(
+                children: [
+                  Container(
+                    constraints: BoxConstraints(
+                      maxWidth: Dimensions.setWidth(
+                        context: context,
+                        width: 0.4,
                       ),
-                      // V.space.
-                      Box.verticalBox(context: context, height: 0.02),
-                      // Text : e.g: 100 Likes
-                      LikesTextWidget(
-                        fontSize: 0.05,
-                        title: "1000 followers",
-                        textAlign: TextAlign.left,
-                        color: AppColors.kWhite,
-                        fontWeight: FontWeight.w300,
+                    ),
+                    child: Card(
+                      color: AppColors.kBlack,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      // V.space.
-                      Box.verticalBox(context: context, height: 0.01),
+                      elevation: 10,
+                      shadowColor: AppColors.kWhite,
+                      child: BlocBuilder<LikesCubit, LikesState>(
+                        builder: (context, state) {
+                          return Column(
+                            children: [
+                              // Icons favorite,Text: Instagram Likes
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: AppColors.kPrimaryColor?.withOpacity(0.3),
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(5),
+                                    topLeft: Radius.circular(5),
+                                  ),
+                                ),
+                                height: Dimensions.setHeight(
+                                  context: context,
+                                  height: 0.10,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  spacing: 6,
+                                  children: [
+                                    Icon(
+                                      Icons.people,
+                                      color: AppColors.kPrimaryColor,
+                                      size: Dimensions.setFontDimension(
+                                        context: context,
+                                        value: 0.06,
+                                      ),
+                                    ),
+                                    LikesTextWidget(
+                                      fontSize: 0.04,
+                                      title: "Instagram Followers",
+                                      textAlign: TextAlign.center,
+                                      color: AppColors.kWhite,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ],
+                                ),
+                              ),
 
-                      // Slider that increase or decrease number of likes,
-                      // And up on likes the price of purchase increase or decrease.
-                      Slider(
-                        value: 1,
-                        onChanged: (price) {},
-                        thumbColor: Colors.purpleAccent,
-                        inactiveColor: Colors.black26,
-                        activeColor: Colors.grey.shade400,
-                        allowedInteraction: SliderInteraction.tapAndSlide,
+                              Container(
+                                padding: AppPadding.allPaddingGeometry(
+                                  context: context,
+                                  value: 0.02,
+                                ),
+                                child: Column(
+                                  children: [
+                                    // V.space.
+                                    Box.verticalBox(
+                                      context: context,
+                                      height: 0.02,
+                                    ),
+                                    // Text : e.g: 100 Followers
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      spacing:3,
+                                      children: [
+                                        LikesTextWidget(
+                                          fontSize: 0.05,
+                                          title:
+                                          '${context.read<LikesCubit>().initialLikesNumber}',
+                                          textAlign: TextAlign.left,
+                                          color: AppColors.kWhite,
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                        LikesTextWidget(
+                                          fontSize: 0.04,
+                                          title:
+                                          'Followers',
+                                          textAlign: TextAlign.left,
+                                          color: AppColors.kWhite,
+                                          fontWeight: FontWeight.w200,
+                                        ),
+                                      ],
+                                    ),
+                                    // V.space.
+                                    Box.verticalBox(
+                                      context: context,
+                                      height: 0.01,
+                                    ),
+
+                                    // Slider that increase or decrease number of likes,
+                                    // And up on likes the price of purchase increase or decrease.
+                                    Slider(
+                                      value:
+                                          instance.initialLikesNumber
+                                              .toDouble(),
+                                      onChanged:
+                                          (likesNumber) =>
+                                              instance.defineLikesNumber(
+                                                likesNumber.toInt(),
+                                              ),
+                                      divisions: Functions.divisionSliderSteps(
+                                        15000,
+                                        1000,
+                                        500,
+                                      ),
+                                      min: 1000,
+                                      max: 15000,
+                                    ),
+
+                                    // V.space.
+                                    Box.verticalBox(
+                                      context: context,
+                                      height: 0.01,
+                                    ),
+                                    // price.
+                                    LikesTextWidget(
+                                      fontSize: 0.05,
+                                      title: "${instance.currentPrice}\$",
+                                      textAlign: TextAlign.left,
+                                      color: AppColors.kWhite,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    // V.space.
+                                    Box.verticalBox(
+                                      context: context,
+                                      height: 0.01,
+                                    ),
+                                    // V.space.
+                                    Box.verticalBox(
+                                      context: context,
+                                      height: 0.01,
+                                    ),
+                                    // Button : Order Now
+                                    LikesButtonWidget(
+                                      label: 'Order Now',
+                                      fontSize: 0.04,
+                                      buttonColor: AppColors.kPrimaryColor,
+                                      onTap: () {},
+                                      height: 0.10,
+                                      width: 0.30,
+                                    ),
+                                    // V.space.
+                                    Box.verticalBox(
+                                      context: context,
+                                      height: 0.02,
+                                    ),
+                                    // Text : instantly.
+                                    Container(
+                                      padding: AppPadding.allPaddingGeometry(
+                                        context: context,
+                                        value: 0.01,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(
+                                          10.0,
+                                        ),
+                                        color: Colors.amber,
+                                      ),
+                                      child: LikesTextWidget(
+                                        fontSize: 0.02,
+                                        title: 'Instantly',
+                                        color: AppColors.kBlack,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          );
+                        },
                       ),
-                      // V.space.
-                      Box.verticalBox(context: context, height: 0.01),
-                      // price.
-                      LikesTextWidget(
-                        fontSize: 0.05,
-                        title: "12\$",
-                        textAlign: TextAlign.left,
-                        color: AppColors.kWhite,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      // V.space.
-                      Box.verticalBox(context: context, height: 0.01),
-                      // V.space.
-                      Box.verticalBox(context: context, height: 0.01),
-                      // Button : Order Now
-                      LikesButtonWidget(
-                        label: 'Order Now',
-                        fontSize: 0.05,
-                        buttonColor: Colors.purpleAccent,
-                        onTap: () {},
-                        height: 0.10,
-                        width: 0.30,
-                      ),
-                      // V.space.
-                      Box.verticalBox(context: context, height: 0.02),
-                      // Text : instantly.
-                      Container(
-                        padding: AppPadding.allPaddingGeometry(
-                          context: context,
-                          value: 0.01,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.amber,
-                        ),
-                        child: LikesTextWidget(
-                          fontSize: 0.02,
-                          title: 'Instantly',
-                          color: Colors.black,
-                        ),
-                      ),
-                      // V.space
-                      Box.verticalBox(context: context, height: 0.05),
-                      // We’ll help you beat the Instagram algorithm, helping you gain organic followers in no time! So, if you need Instagram followers, buy them from us.Only pay for what you need - Slide the bar to discover the cost of buying Instagram followers..
-                      LikesTextWidget(
-                        fontSize: 0.03,
-                        title: "We’ll help you beat the Instagram algorithm, helping you gain organic followers in no time! So, if you need Instagram followers, buy them from us.Only pay for what you need - Slide the bar to discover the cost of buying Instagram followers.",
-                        textAlign: TextAlign.center,
-                        color: AppColors.kWhite,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                  // V.space
+                  Box.verticalBox(context: context, height: 0.05),
+                  // We’ll help you beat the Instagram algorithm, helping you gain organic followers in no time! So, if you need Instagram followers, buy them from us.Only pay for what you need - Slide the bar to discover the cost of buying Instagram followers..
+                  Container(
+                    constraints: BoxConstraints(
+                      maxWidth: Dimensions.setWidth(
+                        context: context,
+                        width: 0.4,
+                      ),
+                    ),
+                    child: LikesTextWidget(
+                      fontSize: 0.03,
+                      title:
+                          "We’ll help you beat the Instagram algorithm, helping you gain organic followers in no time! So, if you need Instagram followers, buy them from us.Only pay for what you need - Slide the bar to discover the cost of buying Instagram followers.",
+                      textAlign: TextAlign.center,
+                      color: AppColors.kWhite,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -213,7 +299,8 @@ class FollowersScreen extends StatelessWidget {
                     LikesTextWidget(
                       textAlign: TextAlign.left,
                       fontSize: 0.06,
-                      title: 'InstaRoi: Buy Instagram followers for as little as \$2.00',
+                      title:
+                          'InstaRoi: Buy Instagram followers for as little as \$2.00',
                       color: AppColors.kWhite,
                       fontWeight: FontWeight.bold,
                     ),
@@ -222,7 +309,7 @@ class FollowersScreen extends StatelessWidget {
                       textAlign: TextAlign.left,
                       fontSize: 0.04,
                       title:
-                      "The Instagram logo has become the symbol of success in today's online influencer world. As a result, many are flooding the Instagram platform to grab the chance to mesmerize their target audience and garner fame.",
+                          "The Instagram logo has become the symbol of success in today's online influencer world. As a result, many are flooding the Instagram platform to grab the chance to mesmerize their target audience and garner fame.",
                       color: AppColors.kWhite,
                       fontWeight: FontWeight.normal,
                     ),
@@ -231,7 +318,7 @@ class FollowersScreen extends StatelessWidget {
                       textAlign: TextAlign.left,
                       fontSize: 0.04,
                       title:
-                      "Almost everything that goes up in the Instagram algorithm is ranked based on how many people liked it, So it's not enough to simply create interesting content anymore. Although social media marketing can help you eventually get there, it can take some time to gain consistent Instagram views.",
+                          "Almost everything that goes up in the Instagram algorithm is ranked based on how many people liked it, So it's not enough to simply create interesting content anymore. Although social media marketing can help you eventually get there, it can take some time to gain consistent Instagram views.",
                       color: AppColors.kWhite,
                       fontWeight: FontWeight.normal,
                     ),
@@ -240,13 +327,15 @@ class FollowersScreen extends StatelessWidget {
                       textAlign: TextAlign.left,
                       fontSize: 0.04,
                       color: AppColors.kWhite,
-                      title: "Here’s where InstaRoi comes to the rescue, What we offer is an opportunity to break through social media by making sure you get noticed.",
+                      title:
+                          "Here’s where InstaRoi comes to the rescue, What we offer is an opportunity to break through social media by making sure you get noticed.",
                       fontWeight: FontWeight.normal,
                     ),
                     LikesTextWidget(
                       textAlign: TextAlign.left,
                       fontSize: 0.04,
-                      title:"Through our Instagram followers services, you’ll be able to increase your reputation on the platform, thus encouraging people to engage with your content. We made our packages highly affordable so you can maximize all the benefits of our services!",
+                      title:
+                          "Through our Instagram followers services, you’ll be able to increase your reputation on the platform, thus encouraging people to engage with your content. We made our packages highly affordable so you can maximize all the benefits of our services!",
                       color: AppColors.kWhite,
                       fontWeight: FontWeight.normal,
                     ),
@@ -267,7 +356,10 @@ class FollowersScreen extends StatelessWidget {
                     elevation: 10,
                     shadowColor: AppColors.kWhite,
                     child: Container(
-                      height: Dimensions.setHeight(context: context, height: 0.60),
+                      height: Dimensions.setHeight(
+                        context: context,
+                        height: 0.60,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.black,
                         borderRadius: BorderRadius.circular(10),
@@ -311,7 +403,7 @@ class FollowersScreen extends StatelessWidget {
                                     width: 0.08,
                                   ),
                                   child: // image
-                                  CircleAvatar(
+                                      CircleAvatar(
                                     foregroundImage: AssetImage(
                                       '${ImageRoute.imageRoot}profile.jpg',
                                     ),
@@ -534,7 +626,8 @@ class FollowersScreen extends StatelessWidget {
                 child: LikesTextWidget(
                   textAlign: TextAlign.center,
                   fontSize: 0.03,
-                  title: 'Legit Instagram Followers for Your Instagram Account!',
+                  title:
+                      'Legit Instagram Followers for Your Instagram Account!',
                   color: AppColors.kWhite,
                   fontWeight: FontWeight.bold,
                 ),
@@ -552,17 +645,19 @@ class FollowersScreen extends StatelessWidget {
                     LikesTextWidget(
                       textAlign: TextAlign.center,
                       fontSize: 0.03,
-                      title: "These are some of our most popular real Instagram followers packages, No matter what the purchase size - we guarantee that you’ll get all the perks of buying Instagram fans from us.",
+                      title:
+                          "These are some of our most popular real Instagram followers packages, No matter what the purchase size - we guarantee that you’ll get all the perks of buying Instagram fans from us.",
                       color: AppColors.kWhite,
                     ),
                     LikesTextWidget(
                       textAlign: TextAlign.center,
                       fontSize: 0.03,
-                      title: "This includes access to our stellar customer support team and a guarantee of legitimacy for every new account added to your follower count. Choose one, and get to the checkout page instantly!",
+                      title:
+                          "This includes access to our stellar customer support team and a guarantee of legitimacy for every new account added to your follower count. Choose one, and get to the checkout page instantly!",
                       color: AppColors.kWhite,
                     ),
                   ],
-                )
+                ),
               ),
 
               //Followers cards.
@@ -570,7 +665,7 @@ class FollowersScreen extends StatelessWidget {
                 spacing: 7,
                 children: List.generate(
                   10,
-                      (index) => FollowersCardWidget(
+                  (index) => FollowersCardWidget(
                     followerNumber: 100,
                     followerPrice: 1,
                     onTap: () {
@@ -616,15 +711,15 @@ class FollowersScreen extends StatelessWidget {
                     Image.asset(
                       '${ImageRoute.imageRoot}follow.png',
                       cacheHeight:
-                      Dimensions.setHeight(
-                        context: context,
-                        height: 0.15,
-                      ).toInt(),
+                          Dimensions.setHeight(
+                            context: context,
+                            height: 0.15,
+                          ).toInt(),
                       cacheWidth:
-                      Dimensions.setWidth(
-                        context: context,
-                        width: 0.15,
-                      ).toInt(),
+                          Dimensions.setWidth(
+                            context: context,
+                            width: 0.15,
+                          ).toInt(),
                       fit: BoxFit.cover,
                     ),
                     // Text : Fast Delivery of Instagram Followers
@@ -639,7 +734,8 @@ class FollowersScreen extends StatelessWidget {
                     LikesTextWidget(
                       textAlign: TextAlign.left,
                       fontSize: 0.03,
-                      title: "Decide how you want your Instagram followers delivered: instantly or at a natural pace. Each option has its own pros and cons. You're in charge – tell us when to deliver, and we'll be right on time!",
+                      title:
+                          "Decide how you want your Instagram followers delivered: instantly or at a natural pace. Each option has its own pros and cons. You're in charge – tell us when to deliver, and we'll be right on time!",
                       color: AppColors.kWhite,
                     ),
 
@@ -650,15 +746,15 @@ class FollowersScreen extends StatelessWidget {
                     Image.asset(
                       '${ImageRoute.imageRoot}realFollow.png',
                       cacheHeight:
-                      Dimensions.setHeight(
-                        context: context,
-                        height: 0.15,
-                      ).toInt(),
+                          Dimensions.setHeight(
+                            context: context,
+                            height: 0.15,
+                          ).toInt(),
                       cacheWidth:
-                      Dimensions.setWidth(
-                        context: context,
-                        width: 0.15,
-                      ).toInt(),
+                          Dimensions.setWidth(
+                            context: context,
+                            width: 0.15,
+                          ).toInt(),
                       fit: BoxFit.cover,
                     ),
                     // Text : Real Followers
@@ -673,7 +769,8 @@ class FollowersScreen extends StatelessWidget {
                     LikesTextWidget(
                       textAlign: TextAlign.left,
                       fontSize: 0.03,
-                      title: "Join our happy customers enjoying top-notch followers. Boost your Instagram presence with active fans. Choose us for risk-free growth and avoid account bans, thanks to our reliable social media services.",
+                      title:
+                          "Join our happy customers enjoying top-notch followers. Boost your Instagram presence with active fans. Choose us for risk-free growth and avoid account bans, thanks to our reliable social media services.",
                       color: AppColors.kWhite,
                     ),
                   ],
@@ -698,15 +795,15 @@ class FollowersScreen extends StatelessWidget {
                     Image.asset(
                       '${ImageRoute.imageRoot}support.png',
                       cacheHeight:
-                      Dimensions.setHeight(
-                        context: context,
-                        height: 0.15,
-                      ).toInt(),
+                          Dimensions.setHeight(
+                            context: context,
+                            height: 0.15,
+                          ).toInt(),
                       cacheWidth:
-                      Dimensions.setWidth(
-                        context: context,
-                        width: 0.15,
-                      ).toInt(),
+                          Dimensions.setWidth(
+                            context: context,
+                            width: 0.15,
+                          ).toInt(),
                       fit: BoxFit.cover,
                     ),
                     // Text : Real Likes, Real Impact
@@ -721,7 +818,8 @@ class FollowersScreen extends StatelessWidget {
                     LikesTextWidget(
                       textAlign: TextAlign.left,
                       fontSize: 0.03,
-                      title:"Craving more followers? Our support team is here to help, responding quickly to all your needs. We guide you on the ideal number of followers and the best delivery speed for your Instagram account.",
+                      title:
+                          "Craving more followers? Our support team is here to help, responding quickly to all your needs. We guide you on the ideal number of followers and the best delivery speed for your Instagram account.",
                       color: AppColors.kWhite,
                     ),
 
@@ -732,15 +830,15 @@ class FollowersScreen extends StatelessWidget {
                     Image.asset(
                       '${ImageRoute.imageRoot}cheapPrice.png',
                       cacheHeight:
-                      Dimensions.setHeight(
-                        context: context,
-                        height: 0.15,
-                      ).toInt(),
+                          Dimensions.setHeight(
+                            context: context,
+                            height: 0.15,
+                          ).toInt(),
                       cacheWidth:
-                      Dimensions.setWidth(
-                        context: context,
-                        width: 0.15,
-                      ).toInt(),
+                          Dimensions.setWidth(
+                            context: context,
+                            width: 0.15,
+                          ).toInt(),
                       fit: BoxFit.cover,
                     ),
                     // Text : Cheap Packages
@@ -754,7 +852,8 @@ class FollowersScreen extends StatelessWidget {
                     LikesTextWidget(
                       textAlign: TextAlign.left,
                       fontSize: 0.03,
-                      title: "Experience the reality of top-quality Instagram followers with us. Don't miss out on our budget-friendly deals and special discounts. Elevate your presence and enhance your social media strategy.",
+                      title:
+                          "Experience the reality of top-quality Instagram followers with us. Don't miss out on our budget-friendly deals and special discounts. Elevate your presence and enhance your social media strategy.",
                       color: AppColors.kWhite,
                     ),
                   ],
@@ -784,7 +883,8 @@ class FollowersScreen extends StatelessWidget {
                   children: [
                     LikesTextWidget(
                       fontSize: 0.05,
-                      title:"Still not convinced? \n Here are more reasons to buy followers from InstaRoi:",
+                      title:
+                          "Still not convinced? \n Here are more reasons to buy followers from InstaRoi:",
                       textAlign: TextAlign.left,
                       fontWeight: FontWeight.bold,
                       color: AppColors.kWhite,
@@ -792,7 +892,8 @@ class FollowersScreen extends StatelessWidget {
 
                     LikesTextWidget(
                       fontSize: 0.03,
-                      title:"We promise to provide the best followers, so your page will get exactly what it deserves! But if you’re not convinced you can buy Instagram followers safely from us, these reasons will help change your mind:",
+                      title:
+                          "We promise to provide the best followers, so your page will get exactly what it deserves! But if you’re not convinced you can buy Instagram followers safely from us, these reasons will help change your mind:",
                       textAlign: TextAlign.left,
                       color: AppColors.kWhite,
                     ),
@@ -805,11 +906,11 @@ class FollowersScreen extends StatelessWidget {
                 children: [
                   LikesTextWidget(
                     fontSize: 0.03,
-                    title:"We’ve seen horror stories of how someone seemingly rose to instant fame only to have their account banned because of fake accounts. Artificial intelligence may not be perfect, but it’s getting smarter every day. That’s why with the wrong move (even with authentic users!), you can let all your hard work go to waste. To help you continuously increase your Instagram engagement throughout services, we use a drip feed to help you stay under the radar of the watchful eye of the ever-evolving algorithm.",
+                    title:
+                        "We’ve seen horror stories of how someone seemingly rose to instant fame only to have their account banned because of fake accounts. Artificial intelligence may not be perfect, but it’s getting smarter every day. That’s why with the wrong move (even with authentic users!), you can let all your hard work go to waste. To help you continuously increase your Instagram engagement throughout services, we use a drip feed to help you stay under the radar of the watchful eye of the ever-evolving algorithm.",
                     textAlign: TextAlign.left,
                     color: AppColors.kWhite,
                   ),
-
                 ],
               ),
 
@@ -818,7 +919,8 @@ class FollowersScreen extends StatelessWidget {
                 children: [
                   LikesTextWidget(
                     fontSize: 0.03,
-                    title:"From common wisdom, everyone knows that the sum is greater than its parts. Based on the results that we were able to deliver to our customers in increasing follower count, any powerful individual strategy on a social media platform is more effective when there are other efforts undertaken. To make it easier for you to access amazing prices for various related services, you can buy Instagram followers, likes, shares, views, comments, and more on our website.",
+                    title:
+                        "From common wisdom, everyone knows that the sum is greater than its parts. Based on the results that we were able to deliver to our customers in increasing follower count, any powerful individual strategy on a social media platform is more effective when there are other efforts undertaken. To make it easier for you to access amazing prices for various related services, you can buy Instagram followers, likes, shares, views, comments, and more on our website.",
                     textAlign: TextAlign.left,
                     color: AppColors.kWhite,
                   ),
@@ -830,7 +932,8 @@ class FollowersScreen extends StatelessWidget {
                 children: [
                   LikesTextWidget(
                     fontSize: 0.03,
-                    title:"Because there are other social media platforms that became popular before Instagram, you may not know how to employ social media marketing strategies here. Don’t worry! Even before you buy real Instagram followers from us, you’ll still be able to inquire with our helpful customer support about which options will work well for you.",
+                    title:
+                        "Because there are other social media platforms that became popular before Instagram, you may not know how to employ social media marketing strategies here. Don’t worry! Even before you buy real Instagram followers from us, you’ll still be able to inquire with our helpful customer support about which options will work well for you.",
                     textAlign: TextAlign.left,
                     color: AppColors.kWhite,
                   ),
@@ -843,7 +946,8 @@ class FollowersScreen extends StatelessWidget {
                 children: [
                   LikesTextWidget(
                     fontSize: 0.03,
-                    title:"We make it easy for you to buy followers for one of the most popular social media platforms today. Right now, we accept Mastercard, Visa, and PayPal in completing your transactions. But rest assured that we’re working on further expanding this to accommodate other popular payment gateways too.",
+                    title:
+                        "We make it easy for you to buy followers for one of the most popular social media platforms today. Right now, we accept Mastercard, Visa, and PayPal in completing your transactions. But rest assured that we’re working on further expanding this to accommodate other popular payment gateways too.",
                     textAlign: TextAlign.left,
                     color: AppColors.kWhite,
                   ),
@@ -882,7 +986,8 @@ class FollowersScreen extends StatelessWidget {
                     ),
                     LikesTextWidget(
                       fontSize: 0.03,
-                      title: "Use the sliding bar to select the number of followers you want to buy. You’ll also see the cost here, so you can adjust your purchase based on your budget. You can get started for as little as \$2! Alternatively, you may select from our most popular packages.",
+                      title:
+                          "Use the sliding bar to select the number of followers you want to buy. You’ll also see the cost here, so you can adjust your purchase based on your budget. You can get started for as little as \$2! Alternatively, you may select from our most popular packages.",
                       textAlign: TextAlign.left,
                       color: AppColors.kWhite,
                     ),
@@ -906,7 +1011,8 @@ class FollowersScreen extends StatelessWidget {
                     ),
                     LikesTextWidget(
                       fontSize: 0.03,
-                      title: "Once you click the order button, you’ll be headed straight to the checkout page. Just make sure that all the details are correct before confirming your order. Please note that all orders are final unless they fall within our refund policy.",
+                      title:
+                          "Once you click the order button, you’ll be headed straight to the checkout page. Just make sure that all the details are correct before confirming your order. Please note that all orders are final unless they fall within our refund policy.",
                       textAlign: TextAlign.left,
                       color: AppColors.kWhite,
                     ),
@@ -931,7 +1037,8 @@ class FollowersScreen extends StatelessWidget {
                     ),
                     LikesTextWidget(
                       fontSize: 0.03,
-                      title: "Now, all that’s left to do is pay! You can pay using your Visa or Mastercard. PayPal payments are accepted as well. We’ll send you an email confirming your purchase once you’re done with this part. Apart from ensuring that your Instagram profile is public, you don’t have to do anything else. We’ll deliver the followers on the username you provided.",
+                      title:
+                          "Now, all that’s left to do is pay! You can pay using your Visa or Mastercard. PayPal payments are accepted as well. We’ll send you an email confirming your purchase once you’re done with this part. Apart from ensuring that your Instagram profile is public, you don’t have to do anything else. We’ll deliver the followers on the username you provided.",
                       textAlign: TextAlign.left,
                       color: AppColors.kWhite,
                     ),

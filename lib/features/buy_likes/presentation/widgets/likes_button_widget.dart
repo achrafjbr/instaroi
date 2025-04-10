@@ -11,6 +11,7 @@ class LikesButtonWidget extends StatelessWidget {
     this.buttonColor,
     required this.height,
     required this.width,
+    this.fontWeight,
   });
 
   final void Function()? onTap;
@@ -19,6 +20,7 @@ class LikesButtonWidget extends StatelessWidget {
   final double height;
   final double width;
   final Color? buttonColor;
+  final FontWeight? fontWeight;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,7 @@ class LikesButtonWidget extends StatelessWidget {
           title: label,
           color: Colors.white,
           textAlign: TextAlign.center,
-          fontWeight: FontWeight.w600,
+          fontWeight: fontWeight,
         ),
       ),
     );
